@@ -6,6 +6,12 @@ type BentoCardType = "small" | "large" | "medium" | "long" | "vertical";
 interface BentoSizes {
   [key: string]: { width: string; height: string };
 }
+
+const Flavicon = {
+  width: "40px",
+  height: "40px",
+};
+
 const BentoSizes: BentoSizes = {
   small: {
     width: "180px",
@@ -29,6 +35,29 @@ const BentoSizes: BentoSizes = {
   },
 };
 
+const BentoImageSize: BentoSizes = {
+  small: {
+    width: "0px",
+    height: "0px",
+  },
+  long: {
+    width: "0px",
+    height: "0px",
+  },
+  vertical: {
+    width: "130px",
+    height: "68px",
+  },
+  medium: {
+    width: "180px",
+    height: "130px",
+  },
+  large: {
+    width: "332px",
+    height: "174px",
+  },
+};
+
 function BentoHeader() {
   return <div></div>;
 }
@@ -37,8 +66,30 @@ function BentoDescription() {
   return <div></div>;
 }
 
-function BentoImage({ src, alt = "image" }: { src: string; alt: string }) {
-  return <Image src={src} alt={alt} />;
+export function BentoImage({
+  src,
+  alt = "image",
+  type,
+}: {
+  src: string;
+  alt: string;
+  type: BentoCardType;
+}) {
+  const { width, height } = BentoImageSize[type];
+  return (
+    <Image
+      className=" object-cover object-center w-full rounded-[20px]"
+      src={src}
+      style={{
+        width,
+        height,
+        aspectRatio: "4:3",
+      }}
+      alt={alt}
+      width={Number(BentoImageSize[type].width.replace("px", ""))}
+      height={Number(BentoImageSize[type].height.replace("px", ""))}
+    />
+  );
 }
 
 interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -50,14 +101,16 @@ interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
 function BentoCard({
   type = "small",
   rounded = true,
-  border = "2px solid #eee",
+  border = "none",
   children,
+
   ...props
 }: BentoCardProps) {
   const { width, height } = BentoSizes[type];
+
   return (
     <div
-      data-state={type}
+      date-bento-card={type}
       style={{
         width,
         height,
@@ -81,6 +134,7 @@ function BentoCard({
           position: "absolute",
           top: "0px",
         }}
+        data-bento-card-container={type}
         className=" font-semibold"
       >
         {children}
