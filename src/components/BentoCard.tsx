@@ -120,14 +120,13 @@ function BentoCard({
         borderRadius: rounded ? "20px" : "0px",
         overflow: "hidden",
         position: "relative",
-
-        // boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
       }}
       {...props}
     >
       <div
         style={{
-          boxShadow: "0 2px 4px rgba(0,0,0,.04)",
+          // boxShadow: "0 2px 4px rgba(0,0,0,.04)",
+
           padding: "1.5rem",
           width,
           height,
@@ -135,13 +134,12 @@ function BentoCard({
           top: "0px",
         }}
         data-bento-card-container={type}
-        className=" font-semibold"
+        className=" shadow-[0_2px_4px_rgba(0,0,0,.04)] dark:shadow-[0_2px_4px_rgba(255,255,255,.04)]  font-semibold dark:text-white   dark:shadow-neutral-700 "
       >
         {children}
       </div>
       <div
         style={{
-          borderColor: "rgba(0,0,0,.08)",
           opacity: 1,
           position: "absolute",
           top: "0",
@@ -152,13 +150,14 @@ function BentoCard({
           borderWidth: 1,
           pointerEvents: "none",
         }}
+        className=" border-[color:rgba(0,0,0,.08)] dark:border-4  dark:border-[color:rgba(255,255,255,0.08)]"
       ></div>
       <div
         style={{
           top: "1px",
           right: "1px",
           bottom: "1px",
-          borderColor: "hsla(0,0%,100%,.22)",
+
           opacity: 1,
           borderWidth: 1,
           transition: "border .2s ease-in-out,opacity .2s ease-in-out",
@@ -167,6 +166,7 @@ function BentoCard({
 
           maskImage: "linear-gradient(0deg,transparent,#000)",
         }}
+        className=" border-[color:hsla(0,0%,100%,.22)] dark:border-4  dark:border-[color:#292929]"
       ></div>
     </div>
   );

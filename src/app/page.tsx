@@ -6,12 +6,12 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex h-full justify-between items-center content-center  bg-white dark:bg-black dark:text-white   ">
-      <div className=" h-full max-w-[500px] justify-center items-center flex px-24">
+    <main className="flex  justify-between items-center content-center  bg-white dark:bg-neutral-900 dark:text-white   ">
+      <div className="  max-w-[500px] justify-center items-center flex px-24">
         <Posts />
       </div>
 
-      <div className="flex flex-col gap-5 overflow-scroll h-screen py-20">
+      <div className="flex flex-col gap-5 overflow-scroll py-20">
         <div className="flex gap-[20px] ">
           <BentoCard type="large" border="none">
             <div className="flex flex-col h-full justify-between">
@@ -51,7 +51,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <div className="text-black text-[14px] font-normal">
+                <div className=" text-[14px] font-normal">
                   Pratik Sharma - Web Developer from New Delhi
                 </div>
                 <div className="text-neutral-500 text-[12px] font-normal ">
@@ -100,7 +100,7 @@ export default function Home() {
                   </svg>
                 </div>
 
-                <div className="text-black text-[14px] font-normal overflow-hidden">
+                <div className=" text-[14px] font-normal overflow-hidden">
                   Pratik Sharma - Web Developer from New Delhi
                 </div>
                 <div className="text-neutral-500 text-[12px] font-normal ">
@@ -147,7 +147,7 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                  <div className="text-black text-[14px] max-w-fit font-normal">
+                  <div className=" text-[14px] max-w-fit font-normal">
                     Pratik Sharma - Web Developer from New Delhi
                   </div>
                   <div className="text-neutral-500 text-[12px] font-normal ">
@@ -204,7 +204,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <div className="text-black text-[14px] max-w-fit font-normal">
+                <div className=" text-[14px] max-w-fit font-normal">
                   Pratik Sharma - Web Developer from New Delhi
                 </div>
                 <div className="text-neutral-500 text-[12px] font-normal ">
@@ -216,7 +216,7 @@ export default function Home() {
             {/* <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div> */}
           </BentoCard>
 
-          <div className="flex flex-wrap gap-5 w-[500px]  ">
+          <div className="flex flex-wrap gap-5 w-[300px]  ">
             {[1, 2, 3, 4].map((e) => (
               <BentoCard
                 key={e}
