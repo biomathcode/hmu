@@ -74,8 +74,8 @@ async function Posts() {
         className=" w-32 h-32 rounded-full border border-neutral-400 border-opacity-80"
         src={staticdata.data.publication.favicon}
       />
-      <div className="text-neutal-800 text-2xl font-extrabold">
-        {staticdata.data.publication.title}
+      <div className="text-neutal-800 text-4xl font-extrabold ">
+        {"Pratik Sharma " || staticdata.data.publication.title}
       </div>
 
       <div
