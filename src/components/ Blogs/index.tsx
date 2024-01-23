@@ -113,23 +113,25 @@ async function Posts() {
       <div className="text-black flex flex-col gap-2">
         {staticdata.data.publication.posts.edges.map((e: any) => {
           return (
-            <div key={e.node.id}>
-              <BentoCard type="medium">
-                <div className="flex gap-2">
-                  <div className="flex flex-col">
-                    <div className="text-black">{e.node.title}</div>
-                    <div className=" text-neutral-400">
-                      {e.node.readTimeInMinutes} mins
+            <Link href={"/blogs/" + e.node.slug} key={e.node.id}>
+              <div>
+                <BentoCard type="medium">
+                  <div className="flex gap-2">
+                    <div className="flex flex-col">
+                      <div className="text-black">{e.node.title}</div>
+                      <div className=" text-neutral-400">
+                        {e.node.readTimeInMinutes} mins
+                      </div>
                     </div>
+                    <BentoImage
+                      type="medium"
+                      src={e.node.coverImage.url}
+                      alt={e.node.title}
+                    />
                   </div>
-                  <BentoImage
-                    type="medium"
-                    src={e.node.coverImage.url}
-                    alt={e.node.title}
-                  />
-                </div>
-              </BentoCard>
-            </div>
+                </BentoCard>
+              </div>
+            </Link>
           );
         })}
         {/* {JSON.stringify(staticdata.data.publication.posts.edges)} */}
