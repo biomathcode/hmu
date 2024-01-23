@@ -77,7 +77,7 @@ export function BentoImage({
 }) {
   const { width, height } = BentoImageSize[type];
   return (
-    <Image
+    <img
       className=" object-cover object-center w-full rounded-[20px]"
       src={src}
       style={{

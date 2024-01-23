@@ -37,7 +37,7 @@ function Nav() {
   return (
     <nav
       style={{
-        position: "sticky",
+        position: "absolute",
 
         zIndex: "22",
       }}

@@ -33,3 +33,8 @@ svg {
   width: 36px;
   height: 36px;
 }
+
+body {
+  margin: 0;
+  line-height: inherit;
+}

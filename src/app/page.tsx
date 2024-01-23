@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex  justify-between items-center content-center  bg-white dark:bg-neutral-900 dark:text-white   ">
-      <div className="  max-w-[500px] justify-center items-center flex px-24">
+    <div className="flex flex-row   justify-between items-start content-center  bg-white dark:bg-neutral-900 dark:text-white max-lg:flex-col max-lg:items-center ">
+      <div className=" max-lg:justify-start  py-20  justify-center items-center flex px-24">
         <Posts />
       </div>
 
@@ -279,6 +279,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
