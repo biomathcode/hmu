@@ -1,0 +1,21 @@
+- [ ] home SEO
+- [ ] Sitemap
+- [ ] Page level SEO 
+- [ ] OG image for posts
+- [ ] Og image for home
+
+---
+
+- [ ] Add Marked for rendering of posts
+- [ ] Code block
+- [ ] Image box for images
+- [ ] Add novel editor to edit post 
+- [ ] CRUD to update the blog post
+- [ ] Add AI with ollama and openai
+- [ ] Create on bento widget
+- [ ] Widget for location, spotify- playlist, 
+- [ ] Text, image and video widget for bento
+- [ ] Improve the Shop page
+- [ ] Add Subscription box
+- [ ] Improve the Nav bar
+- [ ] 

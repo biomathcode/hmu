@@ -20,6 +20,7 @@ query getPostFromSlug($slug: String!, $host: String!) {
       
       content {
         markdown
+        html
       }
       
       
@@ -63,18 +64,23 @@ async function fetchData(slug: string) {
 
 export default async function Page({ params }: { params: { id: string } }) {
   const data = await fetchData(params.id);
+  const newdata = data.data.publication.post;
 
   const isOnDemand = true;
 
+  console.log(newdata);
+
   return (
-    <div className="grid grid-cols-6 gap-x-6 gap-y-3">
-      <div className="col-span-full space-y-3 lg:col-span-4">
-        <h1 className=" text-2xl font-medium capitalize dark:text-white text-gray-200">
+    <div className="flex justify-center mt-20">
+      <div className="flex flex-col gap-3 max-w-screen-md">
+        <h1 className=" text-3xl font-medium capitalize dark:text-white text-gray-200">
           {"Page" + params.id}
         </h1>
-        <p className="line-clamp-3 font-medium dark:text-neutral-400 text-gray-500">
-          {JSON.stringify(data)}
-        </p>
+
+        <article
+          className=""
+          dangerouslySetInnerHTML={{ __html: newdata.content.html }}
+        ></article>
       </div>
     </div>
   );

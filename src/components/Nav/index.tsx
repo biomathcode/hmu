@@ -14,21 +14,15 @@ const Links = [
     id: 1,
     label: "home",
     icon: <HomeIcon width={20} />,
-    url: "/blogs/1",
+    url: "/blogs",
     isRedirect: false,
   },
-  {
-    id: 2,
-    label: "blogs",
-    isRedirect: true,
-    url: "https://blog.coolhead.in",
-    icon: <Pencil1Icon width={20} />,
-  },
+
   {
     id: 6,
     label: "shop",
     isRedirect: false,
-    url: "https://shop.coolhead.in",
+    url: "/shop",
     icon: <BackpackIcon width={10} />,
   },
 ];
@@ -37,11 +31,11 @@ function Nav() {
   return (
     <nav
       style={{
-        position: "absolute",
+        position: "sticky",
 
         zIndex: "22",
       }}
-      className=" shadow-[0 25px 60px rgba(0, 0, 0, 0.12)] bottom-3 flex h-16 w-[300px] justify-center rounded-[999px] dark:bg-neutral-900 bg-neutral-100  "
+      className=" shadow-[0 25px 60px rgba(0, 0, 0, 0.12)] bottom-3 flex h-16 w-fit  justify-center rounded-[999px] dark:bg-neutral-900 bg-neutral-100  "
     >
       <div className="relative flex items-center justify-center gap-6  py-2 px-6 ">
         {Links.map((e) => (
