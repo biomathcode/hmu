@@ -18,4 +18,9 @@
 - [ ] Improve the Shop page
 - [ ] Add Subscription box
 - [ ] Improve the Nav bar
-- [ ] 
+- [ ] Create a Marketing pages for shop
+- [ ] Create Components for Marketing page
+
+- [ ] Add Support for audio blogs as well
+- [ ] Create a Section for series 
+- [ ] Add the Tag based blogs

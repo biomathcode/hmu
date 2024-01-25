@@ -6,14 +6,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-row   justify-between items-start content-center  bg-white dark:bg-neutral-900 dark:text-white max-lg:flex-col max-lg:items-center ">
-      <div className=" max-lg:justify-start  py-20  justify-center items-center flex px-24">
+    <div className="flex relative  overflow-visible  flex-row  justify-between gap-20 items-start content-center   max-lg:flex-col max-lg:items-center ">
+      <div className=" sticky top-4 max-lg:justify-start max-w-[320px] max-h-[500px]  py-20  justify-center items-center flex">
         <Posts />
       </div>
 
-      <div className="flex flex-col gap-5 overflow-scroll py-20">
+      <div className="flex flex-col gap-5 h-full no-scrollbar  overflow-auto min-w-[720px] py-4 ">
         <div className="flex gap-[20px] ">
-          <BentoCard type="large" border="none">
+          <BentoCard className=" sticky top-4" type="large" border="none">
             <div className="flex flex-col h-full justify-between">
               <div className="flex gap-3 flex-col">
                 <div

@@ -94,7 +94,7 @@ async function Posts() {
   console.log(staticdata.data.publication.links.github.split("/").slice(-1)[0]);
 
   return (
-    <div className="text-black dark:text-white flex flex-col gap-4 mt-10">
+    <div className="text-black dark:text-white flex flex-col gap-4 mt-10 overflow-scroll no-scrollbar">
       <img
         alt={"Profile Pic " + staticdata.data.publication.title}
         className=" w-32 h-32 rounded-full border border-neutral-400 border-opacity-80"

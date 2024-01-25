@@ -29,27 +29,20 @@ const Links = [
 
 function Nav() {
   return (
-    <nav
-      style={{
-        position: "sticky",
-
-        zIndex: "22",
-      }}
-      className=" shadow-[0 25px 60px rgba(0, 0, 0, 0.12)] bottom-3 flex h-16 w-fit  justify-center rounded-[999px] dark:bg-neutral-900 bg-neutral-100  "
-    >
-      <div className="relative flex items-center justify-center gap-6  py-2 px-6 ">
+    <nav className=" z-10 fixed bottom-5  flex w-full   justify-center rounded-[999px]   ">
+      <div className=" shadow-[0 25px 60px rgba(0, 0, 0, 0.12)] flex items-center dark:bg-neutral-900 bg-neutral-100 justify-center gap-8  py-2 px-6 rounded-full  ">
         {Links.map((e) => (
           <Link
             data-tooltip
             title={e.label}
             key={e.id}
-            className="flex h-[25px] w-[25px] items-center justify-center rounded-3xl"
+            className="flex h-[15px] w-[15px] items-center justify-center rounded-3xl"
             href={e.url}
             target={e.isRedirect ? "_blank" : "_self"}
           >
-            <span className="rounded-full dark:bg-neutral-800  p-2 dark:text-neutral-600 hover:bg-neutral-900">
+            <div className="rounded-full dark:bg-neutral-800  p-2 dark:text-neutral-600 hover:bg-neutral-900">
               {e.icon}
-            </span>
+            </div>
           </Link>
         ))}
         <ModeToggle />

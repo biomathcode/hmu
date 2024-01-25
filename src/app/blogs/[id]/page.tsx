@@ -1,3 +1,4 @@
+import { MarkdownToHtml } from "@/components/markdowntohtml";
 import { notFound } from "next/navigation";
 
 const endpoint = "https://gql.hashnode.com"; // Replace with your actual GraphQL endpoint URL
@@ -17,6 +18,11 @@ query getPostFromSlug($slug: String!, $host: String!) {
     }
       publishedAt
       updatedAt
+      coverImage {
+        url
+        attribution
+        
+      }
       
       content {
         markdown
@@ -71,16 +77,25 @@ export default async function Page({ params }: { params: { id: string } }) {
   console.log(newdata);
 
   return (
-    <div className="flex justify-center mt-20">
-      <div className="flex flex-col gap-3 max-w-screen-md">
-        <h1 className=" text-3xl font-medium capitalize dark:text-white text-gray-200">
-          {"Page" + params.id}
+    <div className="flex justify-center mt-20 overflow-scroll">
+      <div className="flex flex-col items-center gap-5 max-w-screen-md">
+        <h1 className=" sticky top-0 bg-neutral-900 text-3xl font-medium capitalize dark:text-white text-gray-200">
+          {newdata.title}
         </h1>
+        <img
+          src={newdata.coverImage.url}
+          style={{
+            width: "500px",
+            height: "300px",
+          }}
+        />
 
-        <article
+        <MarkdownToHtml contentMarkdown={newdata.content.markdown} />
+
+        {/* <article
           className=""
           dangerouslySetInnerHTML={{ __html: newdata.content.html }}
-        ></article>
+        ></article> */}
       </div>
     </div>
   );

@@ -94,18 +94,18 @@ async function Posts() {
   console.log(staticdata.data.publication.links.github.split("/").slice(-1)[0]);
 
   return (
-    <div className="text-black dark:text-white flex flex-col gap-4">
+    <div className="text-black sticky top-3 dark:text-white flex flex-col gap-4">
       <img
         alt={"Profile Pic " + staticdata.data.publication.title}
         className=" w-32 h-32 rounded-full border border-neutral-400 border-opacity-80"
         src={staticdata.data.publication.favicon}
       />
       <div className="text-neutal-800 text-4xl font-extrabold  ">
-        {"Pratik Sharma " || staticdata.data.publication.title}
+        {staticdata.data.publication.title}
       </div>
 
       <div
-        className=" max-w-lg dark:text-neutral-400"
+        className=" max-w-lg dark:text-neutral-400 mt-3 text-[#565656] xl:mt-3 xl:text-xl"
         dangerouslySetInnerHTML={{
           __html: staticdata.data.publication.about.markdown,
         }}
