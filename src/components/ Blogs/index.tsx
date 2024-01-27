@@ -1,19 +1,35 @@
 import { useEffect, useState } from "react";
 import BentoCard, { BentoImage } from "../BentoCard";
 import Link from "next/link";
+import SubscribeBox from "../SubscribeBox";
+import SeoHome from "../Seo/home";
 
 const endpoint = "https://gql.hashnode.com"; // Replace with your actual GraphQL endpoint URL
 const host = "blog.coolhead.in"; // Replace with the desired host value
-const first = 10;
+const first = 20;
 const query = `
-
 query Publication($host: String!, $first: Int!) {
   publication(host:$host) {
     id
     title
+    url
     displayTitle
     favicon
+    descriptionSEO
+    ogMetaData {
+      image
+    }
+    preferences {
+      logo
+    }
+    author {
+      name
+      
+    }
+    followersCount
+    isTeam
     posts(first: $first){
+      totalDocuments
       edges {
         node {
           id
@@ -25,7 +41,6 @@ query Publication($host: String!, $first: Int!) {
           }
           readTimeInMinutes
         }
-        
         cursor
         
         
@@ -37,9 +52,7 @@ query Publication($host: String!, $first: Int!) {
         host
       }
     }
-    author {
-      profilePicture
-    }
+   
     links {
       github
       youtube
@@ -52,7 +65,6 @@ query Publication($host: String!, $first: Int!) {
       mastodon
       
     }
-    
     about {
       markdown
     }
@@ -106,6 +118,9 @@ async function Posts() {
           __html: staticdata.data.publication.about.markdown,
         }}
       />
+      <SeoHome publication={staticdata.data.publication} />
+
+      <SubscribeBox />
     </div>
   );
 }
