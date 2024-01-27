@@ -89,10 +89,6 @@ async function fetchData() {
 async function Posts() {
   const staticdata = await fetchData();
 
-  console.log(staticdata);
-
-  console.log(staticdata.data.publication.links.github.split("/").slice(-1)[0]);
-
   return (
     <div className="text-black dark:text-white flex flex-col gap-4 mt-10 overflow-scroll no-scrollbar">
       <img

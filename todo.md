@@ -6,7 +6,7 @@
 
 ---
 
-- [ ] Add Marked for rendering of posts
+- [X] Add Marked for rendering of posts
 - [ ] Code block
 - [ ] Image box for images
 - [ ] Add novel editor to edit post 

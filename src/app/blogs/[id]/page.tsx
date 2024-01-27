@@ -74,8 +74,6 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   const isOnDemand = true;
 
-  console.log(newdata);
-
   return (
     <div className="flex justify-center mt-20 overflow-scroll">
       <div className="flex flex-col items-center gap-5 max-w-screen-md">

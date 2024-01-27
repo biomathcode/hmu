@@ -2,6 +2,8 @@
 HMU is a porfolio template for bloggers, indie developer, any 1 who is on internet and wants to write and sell its goods. The aim is to be composable, adaptable and plug&play. It's a Static Site Generator.  
 
 
+![header Image for the project](save.gif)
+
 #### Tech Stack
 - Tailwind
 - Nextjs
