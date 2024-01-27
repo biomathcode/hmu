@@ -7,10 +7,10 @@
 ---
 
 - [X] Add Marked for rendering of posts
-- [ ] Code block
+- [X] Code block
 - [ ] Image box for images
-- [ ] Add novel editor to edit post 
-- [ ] CRUD to update the blog post
+- [X] Add novel editor to edit post 
+- [ ] save to update the blog post
 - [ ] Add AI with ollama and openai
 - [ ] Create on bento widget
 - [ ] Widget for location, spotify- playlist, 
@@ -21,6 +21,5 @@
 - [ ] Create a Marketing pages for shop
 - [ ] Create Components for Marketing page
 
-- [ ] Add Support for audio blogs as well
 - [ ] Create a Section for series 
 - [ ] Add the Tag based blogs

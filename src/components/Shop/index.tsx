@@ -24,7 +24,7 @@ function ShopCard({ e }: { e: any }) {
         Buy
       </a>
 
-      {JSON.stringify(e)}
+      {/* {JSON.stringify(e)} */}
     </div>
   );
 }
