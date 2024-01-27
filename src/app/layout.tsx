@@ -4,6 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Nav from "@/components/Nav";
 import { cn } from "@/libs/utils";
+import Head from "next/head";
+
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -19,6 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+        />
+      </Head>
+
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased   ",

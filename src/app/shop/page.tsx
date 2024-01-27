@@ -1,16 +1,17 @@
+import ShopCard from "@/components/Shop";
+import LS from "@/libs/Payments/GetProducts";
 import LemonPay from "@/libs/Payments/LemonPay";
+import Image from "next/image";
 
-function Shop() {
+async function Shop() {
+  const data = (await LS.getProducts()).data;
+
   return (
-    <div className=" h-screen w-screen text-white">
+    <div className=" h-screen w-screen ">
       <LemonPay />
-
-      <a
-        href="https://shop.coolhead.in/checkout/buy/3ecca4d6-e805-4e83-8552-a0b6be52c916?embed=1"
-        className="lemonsqueezy-button"
-      >
-        Buy Chandrayaan-3 Site Code
-      </a>
+      {data.map((e) => {
+        return <ShopCard e={e} key={e.id} />;
+      })}
     </div>
   );
 }
