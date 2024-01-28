@@ -38,7 +38,7 @@ const Links = [
 
 function Nav() {
   return (
-    <nav className=" z-10 fixed bottom-5  flex w-full   justify-center rounded-[999px]   ">
+    <nav className=" z-10 fixed bottom-1  flex w-full   justify-center rounded-[999px]   ">
       <div className=" h-16 shadow-[0 25px 60px rgba(0, 0, 0, 0.12)] flex items-center dark:bg-neutral-900 bg-neutral-100 justify-center gap-8  py-2 px-6 rounded-full  ">
         {Links.map((e) => (
           <Link
