@@ -23,3 +23,4 @@
 
 - [ ] Create a Section for series 
 - [ ] Add the Tag based blogs
+- [ ] Add lemon squeeze subdomain
