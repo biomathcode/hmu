@@ -27,7 +27,7 @@ async function Posts() {
       />
       <SeoHome publication={staticdata.data.publication} />
 
-      <SubscribeBox />
+      <SubscribeBox publicationId={staticdata.data.publication.id} />
     </div>
   );
 }
