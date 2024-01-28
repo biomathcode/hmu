@@ -78,7 +78,8 @@ export function BentoImage({
   const { width, height } = BentoImageSize[type];
   return (
     <img
-      className=" object-cover object-center rounded-[20px]"
+      data-type={type}
+      className=" object-cover object-center data-[type=small]:hidden data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
       src={src}
       style={{
         width,
@@ -96,6 +97,7 @@ interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   type: string;
   rounded?: boolean;
   border?: string;
+  background?: ReactNode;
 }
 
 function BentoCard({
@@ -103,6 +105,7 @@ function BentoCard({
   rounded = true,
   border = "none",
   children,
+  background = <div></div>,
 
   ...props
 }: BentoCardProps) {
@@ -168,6 +171,8 @@ function BentoCard({
         }}
         className=" border-[color:hsla(0,0%,100%,.22)] dark:border-4  dark:border-[color:#292929]"
       ></div>
+
+      {/* <div className=" pointer-events-none absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div> */}
     </div>
   );
 }

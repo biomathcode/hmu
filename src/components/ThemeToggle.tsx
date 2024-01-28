@@ -14,10 +14,10 @@ export function ModeToggle() {
       {" "}
       <button
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="dark:bg-neutral-800 bg-neutral-100 text-neutral-900 p-4 dark:text-white rounded-full flex justify-center max-w-[25x]"
+        className="dark:bg-neutral-800 bg-neutral-100 text-neutral-900 p-2 dark:text-neutral-400 rounded-full flex justify-center  "
       >
-        <SunIcon className=" dark:-rotate-90 dark:scale-0 dark:hidden" />
-        <MoonIcon className="  transition-all dark:rotate-0 dark:scale-100 hidden dark:block" />
+        <SunIcon className=" w-6 h-6  dark:-rotate-90 dark:scale-0 dark:hidden" />
+        <MoonIcon className=" w-6 h-6  transition-all dark:rotate-0 dark:scale-100 hidden dark:block" />
       </button>
     </>
   );

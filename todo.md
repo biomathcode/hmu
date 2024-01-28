@@ -1,4 +1,4 @@
-- [ ] home SEO
+- [X] home SEO
 - [ ] Sitemap
 - [ ] Page level SEO 
 - [ ] OG image for posts

@@ -9,7 +9,7 @@ async function Posts() {
   const staticdata = await fetchData();
 
   return (
-    <div className="text-black sticky top-3 dark:text-white flex flex-col gap-4">
+    <div className="animate-in fade-in slide-in-from-bottom-5 duration-1000 text-black sticky top-3 dark:text-white flex flex-col gap-4">
       <img
         alt={"Profile Pic " + staticdata.data.publication.title}
         className=" w-32 h-32 rounded-full border border-neutral-400 border-opacity-80"
