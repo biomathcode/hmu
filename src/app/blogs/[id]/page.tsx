@@ -88,15 +88,12 @@ type Props = {
 export async function generateMetadata({ params, searchParams }: Props) {
   const id = params.id;
 
-  console.log("id", id);
-
   const data = await fetchData(id);
 
   const publication = data.data.publication;
 
   const post = data.data.publication.post;
 
-  console.log("post details", post);
   return {
     title: post.seo?.title || post.title,
 

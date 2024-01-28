@@ -3,7 +3,6 @@ import Head from "next/head";
 
 //TODO: update this with generatemetaData Component
 const SeoHome = ({ publication }: { publication: any }) => {
-  console.log("publication", publication);
   return (
     <Head>
       <script
