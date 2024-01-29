@@ -30,7 +30,7 @@
     "rss": "^1.2.2",
     "sanitize-html": "^2.11.0",
     "slug": "^8.2.3",
-    "tailwind-merge": "^2.2.0",
+    "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "validator": "^13.11.0"
   },

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { triggerEmbed } from "../libs/utils/renderer/services/embed";
+import { triggerEmbed } from "../lib/utils/renderer/services/embed";
 
 export const useEmbeds = ({ enabled }: { enabled: boolean }) => {
   useEffect(() => {

@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/libs/renderer/markdowntohtml.tss", "src/libs/utils/renderer/image.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/lib/renderer/markdowntohtml.tss", "src/lib/utils/renderer/image.js"],
   "exclude": ["node_modules"]
 }

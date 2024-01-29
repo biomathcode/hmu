@@ -1,6 +1,6 @@
 "use client";
 import { useEmbeds } from "../hooks/useEmbeds";
-import { markdownToHtml } from "../libs/utils/renderer/markdownToHtml";
+import { markdownToHtml } from "../lib/utils/renderer/markdownToHtml";
 import { memo } from "react";
 
 type Props = {

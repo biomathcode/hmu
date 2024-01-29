@@ -2,7 +2,7 @@
 
 import { CircleBackslashIcon, Component1Icon } from "@radix-ui/react-icons";
 import { useState } from "react";
-import { subscribeToNewsletter } from "@/libs/datafetch/addemail";
+import { subscribeToNewsletter } from "@/lib/datafetch/addemail";
 
 // TODO: Create a Subcribe box that will send the request to hashnode and lemon squeezy
 

@@ -1,6 +1,6 @@
 import ShopCard from "@/components/Shop";
-import LS from "@/libs/Payments/GetProducts";
-import LemonPay from "@/libs/Payments/LemonPay";
+import LS from "@/lib/Payments/GetProducts";
+import LemonPay from "@/lib/Payments/LemonPay";
 import Image from "next/image";
 
 async function Shop() {

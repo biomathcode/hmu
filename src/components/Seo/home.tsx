@@ -1,4 +1,4 @@
-import { addPublicationJsonLd } from "@/libs/seo/addPublicationJsonLd";
+import { addPublicationJsonLd } from "@/lib/seo/addPublicationJsonLd";
 import Head from "next/head";
 
 //TODO: update this with generatemetaData Component

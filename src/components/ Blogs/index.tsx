@@ -3,7 +3,7 @@ import BentoCard, { BentoImage } from "../BentoCard";
 import Link from "next/link";
 import SubscribeBox from "../SubscribeBox";
 import SeoHome from "../Seo/home";
-import { fetchData } from "@/libs/datafetch/getHome";
+import { fetchData } from "@/lib/datafetch/getHome";
 
 async function Posts() {
   const staticdata = await fetchData();
