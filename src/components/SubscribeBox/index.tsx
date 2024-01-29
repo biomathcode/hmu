@@ -30,7 +30,7 @@ function SubscribeBox({ publicationId }: { publicationId: string }) {
             e.preventDefault();
             setLoading(true);
             const data = await fetch(
-              "https://shop.coolhead.in/email-subscribe/external",
+              `https://${process.env.NEXT_PUBLIC_LEMONSQUEEZY_STORE}/email-subscribe/external`,
               {
                 method: "post",
                 headers: {
@@ -59,10 +59,10 @@ function SubscribeBox({ publicationId }: { publicationId: string }) {
           <div className="flex flex-col gap-2 w-full">
             <label
               htmlFor="UserEmail"
-              className="block text-xs font-medium text-neutral-600"
+              className="block text-xs font-medium text-neutral-600 dark:text-neutral-400"
             >
               {" "}
-              Subscribe for Newletter{" "}
+              Subscribe to Newletter{" "}
             </label>
 
             <input
@@ -70,7 +70,7 @@ function SubscribeBox({ publicationId }: { publicationId: string }) {
               type="email"
               id="UserEmail"
               placeholder="john@gmail.com"
-              className="mt-1 w-full rounded-md border-gray-200 border dark:bg-neutral-800  sm:text-md py-2 px-2"
+              className="mt-1 w-full rounded-md border-gray-200 border dark:bg-neutral-800 dark:placeholder:text-neutral-400 dark:border-neutral-400  sm:text-md py-2 px-2"
             />
           </div>
           <button

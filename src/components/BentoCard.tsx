@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { PropsWithChildren, ReactNode } from "react";
 
 type BentoCardType = "small" | "large" | "medium" | "long" | "vertical";
@@ -144,15 +145,37 @@ const BentoImageSize: BentoSizes = {
 };
 
 // line  clamp values long, vertical, => 3, short, medium, long => 2
-export function BentoTitle({ children }: PropsWithChildren) {
+export function BentoTitle({
+  children,
+  type,
+}: {
+  children: ReactNode;
+  type?: BentoCardType;
+}) {
   return (
-    <div className=" line-clamp-3 text-[14px] font-normal  ">{children}</div>
+    <div
+      data-type={type}
+      className=" line-clamp-3 text-[14px] font-normal data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2 "
+    >
+      {children}
+    </div>
   );
 }
 
-export function BentoSubtitle({ children }: PropsWithChildren) {
+export function BentoSubtitle({
+  children,
+  type,
+}: {
+  children: ReactNode;
+  type?: BentoCardType;
+}) {
   return (
-    <div className="text-neutral-500 text-[12px] font-normal ">{children}</div>
+    <div
+      data-type={type}
+      className="text-neutral-500 text-[12px] font-normal  data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2  "
+    >
+      {children}
+    </div>
   );
 }
 
@@ -188,6 +211,8 @@ interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   rounded?: boolean;
   border?: string;
   background?: ReactNode;
+  isLink?: boolean;
+  href?: string;
 }
 
 function BentoCard({
@@ -196,6 +221,8 @@ function BentoCard({
   border = "none",
   children,
   background = <div></div>,
+  isLink = false,
+  href = "",
 
   ...props
 }: BentoCardProps) {
@@ -233,8 +260,27 @@ function BentoCard({
           borderWidth: 1,
           pointerEvents: "none",
         }}
-        className=" border-[color:rgba(0,0,0,.08)] dark:border-4  dark:border-[color:rgba(255,255,255,0.08)]"
+        className=" border-[color:rgba(0,0,0,.08)] hover:border-opacity-60 dark:border-4  dark:border-[color:rgba(255,255,255,0.08)]"
       ></div>
+      {isLink && (
+        <Link
+          href={href}
+          target="_blank"
+          style={{
+            zIndex: "20",
+            position: "absolute",
+            top: "0",
+            right: "0",
+            left: "0",
+            bottom: "0",
+            borderRadius: "inherit",
+            borderWidth: 1,
+            cursor: "pointer",
+          }}
+          className="hover:opacity-10 transition-all duration-300 ease-linear  opacity-0 bg-neutral-300"
+        ></Link>
+      )}
+
       <div
         style={{
           top: "1px",
@@ -249,7 +295,7 @@ function BentoCard({
 
           maskImage: "linear-gradient(0deg,transparent,#000)",
         }}
-        className=" border-[color:hsla(0,0%,100%,.22)] dark:border-4  dark:border-[color:#292929]"
+        className=" border-[color:hsla(0,0%,100%,.22)]   dark:border-4  dark:border-[color:#292929]"
       ></div>
 
       {/* <div className=" pointer-events-none absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div> */}

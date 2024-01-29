@@ -63,6 +63,8 @@ export default function Home() {
       <div className=" flex flex-col w-full text-left  no-scrollbar py-24 ">
         <div className="  flex gap-[20px] flex-col md:flex-row justify-center md:justify-normal items-center">
           <BentoCard
+            isLink={true}
+            href="https://biomathcode.com"
             className=" animate-in fill-mode-both fade-in slide-in-from-bottom-11  duration-500 delay-700 "
             type="large"
             border="none"
@@ -103,11 +105,11 @@ export default function Home() {
               </BentoCard>
             </div>
 
-            <BentoCard type="medium">
+            <BentoCard type="medium" isLink href="https://coolhead.in">
               <div className="flex h-full justify-between">
                 <div className="flex gap-3 flex-col">
                   <BentoFlavicon />
-                  <BentoTitle>
+                  <BentoTitle type="medium">
                     Pratik Sharma - Web Developer from New Delhi alkmsdf
                     kmalksmd klfmaklsmdkfl madfkdmslafmds f
                   </BentoTitle>
@@ -197,7 +199,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-
+        {/* 
         <div className="flex gap-[20px]  flex-col md:flex-row justify-center md:justify-normal items-center">
           <BentoCard
             type="vertical"
@@ -244,7 +246,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 right-0 top-0 rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
             </BentoCard>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
