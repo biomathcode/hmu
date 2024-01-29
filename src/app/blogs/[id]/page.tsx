@@ -8,6 +8,9 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import { Editor } from "novel";
 
+// TODO: refactor setup request functions at one place
+// TODO: add Editor save button
+
 const query = `
 query getPostFromSlug($slug: String!, $host: String!) {
   publication(host: $host) {

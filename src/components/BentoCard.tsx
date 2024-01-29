@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { PropsWithChildren, ReactNode } from "react";
 
+// TODO :remove Bento Card default width and height and replace with tailwind css
+
 type BentoCardType = "small" | "large" | "medium" | "long" | "vertical";
 
 interface BentoSizes {

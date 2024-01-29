@@ -3,6 +3,7 @@
 - [X] Page level SEO 
 - [X] OG image for posts
 - [X] Og image for home
+- [ ] Create single component for icons
 
 ---
 

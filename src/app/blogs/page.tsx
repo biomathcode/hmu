@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import BentoCard, { BentoImage } from "@/components/BentoCard";
 import Link from "next/link";
 
+// TODO: refactor setup request functions at one place
+
 const endpoint = "https://gql.hashnode.com"; // Replace with your actual GraphQL endpoint URL
 const host = "blog.coolhead.in"; // Replace with the desired host value
 const first = 10;
