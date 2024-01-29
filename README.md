@@ -43,6 +43,15 @@ description = 12px; rgba(0,0,0,0.6), line-height: 16px
 buttontext = 12px; 700, white
 
 
+### Structure of BentoCard
+
+BentoCard will have to BentoContainer, BentoBackground
+BentoContainer => BentoBody, BentoHeader, 
+BentoBody => will can add custom element like spotify playlist or instagram image grid
+BentoImage => will have url and tagline as props
+BentoVideo => will have url and tagline as props
+
+
 
 
 ## Getting Started
@@ -63,3 +72,5 @@ bun dev
 ### References 
 https://dev.to/newbing/how-to-use-lemon-squeezy-as-a-payment-in-nextjs-e46
 Infinite scroll: https://www.youtube.com/watch?v=FKZAXFjxlJI
+
+https://tailwindcss.com/blog/tailwindcss-v3-4

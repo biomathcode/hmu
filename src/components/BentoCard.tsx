@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { ReactNode } from "react";
+import React, { PropsWithChildren, ReactNode } from "react";
 
 type BentoCardType = "small" | "large" | "medium" | "long" | "vertical";
 
@@ -10,6 +10,91 @@ interface BentoSizes {
 const Flavicon = {
   width: "40px",
   height: "40px",
+};
+
+type BentoFlaviconType = {
+  icon: "figma" | "instagram" | "";
+};
+
+// similar to subtitle but multiline is allowed
+export const BentoDescription = ({ children }: PropsWithChildren) => {
+  return (
+    <div className="text-neutral-500 text-[12px] font-normal ">{children}</div>
+  );
+};
+
+export const BentoText = ({ children }: PropsWithChildren) => {
+  return <p>{children}</p>;
+};
+
+export const BentoButton = ({
+  href,
+  label,
+  count,
+  background,
+}: {
+  href: string;
+  label: string;
+  count: string;
+  background: "blue" | "red" | "purple";
+}) => {
+  return (
+    <a
+      className=""
+      href={href}
+      style={{
+        background,
+      }}
+    >
+      {label + "  " + count}
+    </a>
+  );
+};
+
+export const BentoFlavicon = () => {
+  return (
+    <div
+      style={{
+        width: "40px",
+        height: "40px",
+
+        padding: "6px",
+        borderRadius: "10px",
+        background: "#222",
+      }}
+    >
+      <svg
+        style={{
+          width: "30px",
+          height: "30px",
+        }}
+        viewBox="0 0 38 57"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38C25.9804 38 23.5641 36.9991 21.7825 35.2175C20.0009 33.4359 19 31.0196 19 28.5Z"
+          fill="#1ABCFE"
+        />
+        <path
+          d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98044 38 9.5 38H19V47.5C19 50.0196 17.9991 52.4359 16.2175 54.2175C14.4359 55.9991 12.0196 57 9.5 57C6.98044 57 4.56408 55.9991 2.78249 54.2175C1.00089 52.4359 0 50.0196 0 47.5Z"
+          fill="#0ACF83"
+        />
+        <path
+          d="M19 0V19H28.5C31.0196 19 33.4359 17.9991 35.2175 16.2175C36.9991 14.4359 38 12.0196 38 9.5C38 6.98044 36.9991 4.56408 35.2175 2.78249C33.4359 1.00089 31.0196 0 28.5 0L19 0Z"
+          fill="#FF7262"
+        />
+        <path
+          d="M0 9.5C0 12.0196 1.00089 14.4359 2.78249 16.2175C4.56408 17.9991 6.98044 19 9.5 19H19V0H9.5C6.98044 0 4.56408 1.00089 2.78249 2.78249C1.00089 4.56408 0 6.98044 0 9.5Z"
+          fill="#F24E1E"
+        />
+        <path
+          d="M0 28.5C0 31.0196 1.00089 33.4359 2.78249 35.2175C4.56408 36.9991 6.98044 38 9.5 38H19V19H9.5C6.98044 19 4.56408 20.0009 2.78249 21.7825C1.00089 23.5641 0 25.9804 0 28.5Z"
+          fill="#A259FF"
+        />
+      </svg>
+    </div>
+  );
 };
 
 const BentoSizes: BentoSizes = {
@@ -58,12 +143,17 @@ const BentoImageSize: BentoSizes = {
   },
 };
 
-function BentoHeader() {
-  return <div></div>;
+// line  clamp values long, vertical, => 3, short, medium, long => 2
+export function BentoTitle({ children }: PropsWithChildren) {
+  return (
+    <div className=" line-clamp-3 text-[14px] font-normal  ">{children}</div>
+  );
 }
 
-function BentoDescription() {
-  return <div></div>;
+export function BentoSubtitle({ children }: PropsWithChildren) {
+  return (
+    <div className="text-neutral-500 text-[12px] font-normal ">{children}</div>
+  );
 }
 
 export function BentoImage({
@@ -79,7 +169,7 @@ export function BentoImage({
   return (
     <img
       data-type={type}
-      className=" object-cover object-center data-[type=small]:hidden data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
+      className=" object-cover border border-neutral-100 object-center data-[type=small]:hidden data-[type=vertical]:rounded-[10px] data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
       src={src}
       style={{
         width,
@@ -118,7 +208,6 @@ function BentoCard({
         width,
         height,
         border: border,
-        transition: "all .24s cubic-bezier(.31,.026,0,.997)",
 
         borderRadius: rounded ? "20px" : "0px",
         overflow: "hidden",
@@ -127,17 +216,8 @@ function BentoCard({
       {...props}
     >
       <div
-        style={{
-          // boxShadow: "0 2px 4px rgba(0,0,0,.04)",
-
-          padding: "1.5rem",
-          width,
-          height,
-          position: "absolute",
-          top: "0px",
-        }}
         data-bento-card-container={type}
-        className=" shadow-[0_2px_4px_rgba(0,0,0,.04)] dark:shadow-[0_2px_4px_rgba(255,255,255,.04)]  font-semibold dark:text-white   dark:shadow-neutral-700 "
+        className=" shadow-sm  w-full h-full p-6 absolute top-0 dark:shadow-[0_2px_4px_rgba(255,255,255,.04)]  font-semibold dark:text-white   dark:shadow-neutral-700 "
       >
         {children}
       </div>

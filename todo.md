@@ -1,14 +1,14 @@
 - [X] home SEO
 - [ ] Sitemap
-- [ ] Page level SEO 
-- [ ] OG image for posts
-- [ ] Og image for home
+- [X] Page level SEO 
+- [X] OG image for posts
+- [X] Og image for home
 
 ---
 
 - [X] Add Marked for rendering of posts
 - [X] Code block
-- [ ] Image box for images
+- [X] Image box for images
 - [X] Add novel editor to edit post 
 - [ ] save to update the blog post
 - [ ] Add AI with ollama and openai
@@ -24,3 +24,8 @@
 - [ ] Create a Section for series 
 - [ ] Add the Tag based blogs
 - [ ] Add lemon squeeze subdomain
+
+---
+
+- [ ] Improve the shop page
+- [ ] 

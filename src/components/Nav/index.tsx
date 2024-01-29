@@ -1,3 +1,4 @@
+"use client";
 import {
   BackpackIcon,
   EnvelopeClosedIcon,
@@ -10,6 +11,7 @@ import {
 } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { ModeToggle } from "../ThemeToggle";
+import { usePathname } from "next/navigation";
 
 const Links = [
   {
@@ -37,6 +39,8 @@ const Links = [
 ];
 
 function Nav() {
+  const pathname = usePathname();
+
   return (
     <nav className=" z-10 fixed bottom-1  flex w-full   justify-center rounded-[999px]   ">
       <div className=" h-16 shadow-[0 25px 60px rgba(0, 0, 0, 0.12)] flex items-center dark:bg-neutral-900 bg-neutral-100 justify-center gap-8  py-2 px-6 rounded-full  ">
@@ -45,11 +49,14 @@ function Nav() {
             data-tooltip
             title={e.label}
             key={e.id}
-            className="flex h-[15px] w-[15px] items-center justify-center rounded-3xl"
+            className={`flex  items-center justify-center rounded-3xl ${
+              pathname === e.url ? "bg-neutral-300 text-black" : ""
+            }`}
+            // className="flex h-[15px] w-[15px] items-center justify-center rounded-3xl"
             href={e.url}
             target={e.isRedirect ? "_blank" : "_self"}
           >
-            <div className="  rounded-full dark:bg-neutral-800  p-2 dark:text-neutral-600 hover:bg-neutral-300 hover:text-black">
+            <div className="  rounded-full dark:bg-neutral-900  p-2 dark:text-neutral-600 hover:bg-neutral-300 hover:text-black">
               {e.icon}
             </div>
           </Link>
