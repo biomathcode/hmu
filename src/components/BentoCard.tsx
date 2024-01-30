@@ -198,6 +198,7 @@ interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   background?: ReactNode;
   isLink?: boolean;
   href?: string;
+  external?: boolean;
 }
 
 export function BentoToolTip({
@@ -208,13 +209,13 @@ export function BentoToolTip({
   children: ReactNode;
 }) {
   return (
-    <div className=" absolute left-0 bottom-0 p-4 transition-opacity duration-200 ease-in">
+    <div className=" z-20 absolute font-normal left-0 bottom-0 p-4 transition-opacity duration-200 ease-in">
       <div
         className=" max-w-[200px] 
-    bg-white/70 px-2 py-1.5 text-[14px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06)] backdrop-blur-[20px] rounded-[8px]
+    bg-white/70 dark:bg-black/30 px-2 py-1.5 text-[14px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06)] backdrop-blur-[20px] rounded-[8px]
     "
       >
-        <div className=" line-clamp-2">{children}</div>
+        <div className=" line-clamp-1">{children}</div>
       </div>
     </div>
   );
@@ -245,6 +246,7 @@ function BentoCard({
   background = <div></div>,
   isLink = false,
   href = "",
+  external = false,
 
   ...props
 }: BentoCardProps) {
@@ -264,12 +266,12 @@ function BentoCard({
       }}
       {...props}
     >
-      <div
+      {/* <div
         data-bento-card-container={type}
         className=" shadow-sm  w-full h-full p-6 absolute top-0 dark:shadow-[0_2px_4px_rgba(255,255,255,.04)]  font-semibold dark:text-white   dark:shadow-neutral-700 "
-      >
-        {children}
-      </div>
+      > */}
+      {children}
+      {/* </div> */}
       <div
         style={{
           opacity: 1,
@@ -305,7 +307,7 @@ function BentoCard({
       {isLink && (
         <Link
           href={href}
-          target="_blank"
+          target={external ? "_blank" : "_self"}
           style={{
             zIndex: "20",
             position: "absolute",

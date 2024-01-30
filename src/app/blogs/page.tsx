@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import BentoCard, { BentoImage } from "@/components/BentoCard";
+import BentoCard, {
+  BentoContainer,
+  BentoImage,
+  BentoToolTip,
+} from "@/components/BentoCard";
 import Link from "next/link";
 import { getPosts } from "@/lib/datafetch/getPost";
 import LoadMore from "@/components/LoadMore";
@@ -29,30 +33,33 @@ async function Posts() {
       <div className="text-black flex flex-col gap-4 ">
         {staticdata.data.publication.posts.edges.map((e: any) => {
           return (
-            <Link href={"/blogs/" + e.node.slug} key={e.node.id}>
-              <div className="dark:text-white">
-                <BentoCard type="large">
-                  <div className="flex flex-col h-full justify-between ">
-                    <div className="flex flex-col gap-2">
-                      <div className="text-black dark:text-neutral-200">
-                        {e.node.title}
-                      </div>
-                      <div className="text-neutral-600 text-md font-normal dark:text-neutral-200">
-                        {e.node.subtitle}
-                      </div>
-                      <div className=" text-neutral-400 font-normal dark:text-white">
-                        {e.node.readTimeInMinutes} mins
-                      </div>
+            <BentoCard
+              type="large"
+              key={e.node.id}
+              isLink
+              href={"/blogs/" + e.node.slug}
+            >
+              <BentoContainer type="large">
+                <div className="flex flex-col h-full justify-between ">
+                  <div className="flex flex-col gap-2">
+                    <div className="text-black dark:text-neutral-200">
+                      {e.node.title}
                     </div>
-                    <BentoImage
-                      type="large"
-                      src={e.node.coverImage.url}
-                      alt={e.node.title}
-                    />
+                    <div className="text-neutral-600 text-md font-normal dark:text-neutral-200">
+                      {e.node.subtitle}
+                    </div>
+                    <div className=" text-neutral-400 font-normal dark:text-white">
+                      {e.node.readTimeInMinutes} mins
+                    </div>
                   </div>
-                </BentoCard>
-              </div>
-            </Link>
+                  <BentoImage
+                    type="large"
+                    src={e.node.coverImage.url}
+                    alt={e.node.title}
+                  />
+                </div>
+              </BentoContainer>
+            </BentoCard>
           );
         })}
 

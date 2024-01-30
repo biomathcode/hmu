@@ -70,7 +70,7 @@ function SubscribeBox({ publicationId }: { publicationId: string }) {
               type="email"
               id="UserEmail"
               placeholder="john@gmail.com"
-              className="mt-1 w-full rounded-md border-gray-200 border dark:bg-neutral-800 dark:placeholder:text-neutral-400 dark:border-neutral-400  sm:text-md py-2 px-2"
+              className="mt-1 w-full rounded-md border-gray-200 border dark:bg-neutral-900 dark:placeholder:text-neutral-400 dark:border-neutral-400  sm:text-md py-2 px-2"
             />
           </div>
           <button
@@ -83,7 +83,7 @@ function SubscribeBox({ publicationId }: { publicationId: string }) {
                 <Component1Icon className="animate-spin repeat-infinite w-4 h-4 " />{" "}
               </span>
             ) : (
-              "submit"
+              "+ Subscribe"
             )}
           </button>
         </form>

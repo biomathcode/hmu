@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import BentoCard, { BentoImage } from "../BentoCard";
+import { useState } from "react";
+import BentoCard, {
+  BentoContainer,
+  BentoImage,
+  BentoToolTip,
+} from "../BentoCard";
 import { getMorePost } from "@/lib/datafetch/loadmore";
-import { after } from "node:test";
 
 export type PageInfoFragment = {
   __typename?: "PageInfo";
@@ -43,24 +46,26 @@ function LoadMore({ publication, initialPosts, initialPageInfo }: any) {
           <Link href={"/blogs/" + e.slug} key={i}>
             <div className="dark:text-white" key={i}>
               <BentoCard type="large">
-                <div className="flex flex-col h-full justify-between ">
-                  <div className="flex flex-col gap-2">
-                    <div className="text-black dark:text-neutral-200">
-                      {e.title}
+                <BentoContainer type="large">
+                  <div className="flex flex-col h-full justify-between ">
+                    <div className="flex flex-col gap-2">
+                      <div className="text-black dark:text-neutral-200">
+                        {e.title}
+                      </div>
+                      <div className="text-neutral-600 text-md font-normal dark:text-neutral-200">
+                        {e.subtitle}
+                      </div>
+                      <div className=" text-neutral-400 font-normal dark:text-white">
+                        {e.readTimeInMinutes} mins
+                      </div>
                     </div>
-                    <div className="text-neutral-600 text-md font-normal dark:text-neutral-200">
-                      {e.subtitle}
-                    </div>
-                    <div className=" text-neutral-400 font-normal dark:text-white">
-                      {e.readTimeInMinutes} mins
-                    </div>
+                    <BentoImage
+                      type="large"
+                      src={e.coverImage?.url}
+                      alt={e?.title}
+                    />
                   </div>
-                  <BentoImage
-                    type="large"
-                    src={e.coverImage?.url}
-                    alt={e?.title}
-                  />
-                </div>
+                </BentoContainer>
               </BentoCard>
             </div>
           </Link>
