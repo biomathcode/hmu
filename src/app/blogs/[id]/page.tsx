@@ -181,7 +181,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         )}
 
         <img
-          src={newdata.coverImage.url}
+          src={newdata.coverImage?.url}
           style={{
             width: "500px",
             height: "300px",

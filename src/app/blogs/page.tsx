@@ -1,98 +1,16 @@
 import { useEffect, useState } from "react";
 import BentoCard, { BentoImage } from "@/components/BentoCard";
 import Link from "next/link";
+import { getPosts } from "@/lib/datafetch/getPost";
+import LoadMore from "@/components/LoadMore";
 
 // TODO: refactor setup request functions at one place
 
-const endpoint = "https://gql.hashnode.com"; // Replace with your actual GraphQL endpoint URL
-const host = "blog.coolhead.in"; // Replace with the desired host value
-const first = 10;
-const query = `
-
-query Publication($host: String!, $first: Int!) {
-  publication(host:$host) {
-    id
-    title
-    displayTitle
-    favicon
-    posts(first: $first){
-      edges {
-        node {
-          id
-          slug
-          title
-          subtitle
-          coverImage {
-            url
-          }
-          readTimeInMinutes
-        }
-        
-        cursor
-        
-        
-      }
-    }
-    followersCount
-    domainInfo {
-      domain {
-        host
-      }
-    }
-    author {
-      profilePicture
-    }
-    links {
-      github
-      youtube
-      instagram
-      twitter
-      hashnode
-      linkedin
-      dailydev
-      website
-      mastodon
-      
-    }
-    
-    about {
-      markdown
-    }
-  }
-}
-`;
-
-const variables = {
-  host,
-  first,
-};
-
-const requestOptions = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    // Add any additional headers as needed
-  },
-  body: JSON.stringify({ query, variables }),
-};
-
-async function fetchData() {
-  try {
-    const response = await fetch(endpoint, requestOptions);
-    const data = await response.json();
-
-    // Handle the data as needed
-    return data;
-  } catch (error) {
-    console.error("Error during GraphQL request:", error);
-  }
-}
-
 async function Posts() {
-  const staticdata = await fetchData();
+  const staticdata = await getPosts();
 
   return (
-    <div className="text-black dark:text-white flex flex-col gap-4 mt-10  no-scrollbar">
+    <div className="text-black dark:text-white flex flex-col gap-4 mt-10  no-scrollbar  items-center">
       <img
         alt={"Profile Pic " + staticdata.data.publication.title}
         className=" w-32 h-32 rounded-full border border-neutral-400 border-opacity-80"
@@ -108,7 +26,7 @@ async function Posts() {
           __html: staticdata.data.publication.about.markdown,
         }}
       />
-      <div className="text-black flex flex-col gap-4">
+      <div className="text-black flex flex-col gap-4 ">
         {staticdata.data.publication.posts.edges.map((e: any) => {
           return (
             <Link href={"/blogs/" + e.node.slug} key={e.node.id}>
@@ -137,7 +55,10 @@ async function Posts() {
             </Link>
           );
         })}
-        {/* {JSON.stringify(staticdata.data.publication.posts.edges)} */}
+
+        <LoadMore
+          initialPageInfo={staticdata.data.publication.posts.pageInfo}
+        />
       </div>
     </div>
   );
