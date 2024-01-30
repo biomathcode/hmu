@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "icons": "svg-to-tsx -i src/assert/icons -o ./src/assert -n allicons"
   },
   "dependencies": {
     "@lemonsqueezy/lemonsqueezy.js": "^1.2.5",
@@ -32,6 +33,7 @@
     "rss": "^1.2.2",
     "sanitize-html": "^2.11.0",
     "slug": "^8.2.3",
+    "svg-to-tsx": "^0.1.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "validator": "^13.11.0"

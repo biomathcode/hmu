@@ -50,7 +50,9 @@ function Nav() {
             title={e.label}
             key={e.id}
             className={`flex  items-center justify-center rounded-3xl ${
-              pathname === e.url ? "bg-neutral-300 text-black" : ""
+              pathname === e.url
+                ? " border-2 border-neutral-400 dark:border-neutral-500 "
+                : ""
             }`}
             // className="flex h-[15px] w-[15px] items-center justify-center rounded-3xl"
             href={e.url}
