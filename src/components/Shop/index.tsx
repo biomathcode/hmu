@@ -1,31 +1,40 @@
 import Image from "next/image";
+import BentoCard, {
+  BentoImage,
+  BentoSubtitle,
+  BentoText,
+  BentoTitle,
+} from "../BentoCard";
 
 function ShopCard({ e }: { e: any }) {
   return (
-    <div key={e.id} className="flex flex-col gap-4 border p-3 max-w-lg">
-      <Image
+    <BentoCard type="large" key={e.id} className="flex flex-col gap-3">
+      <BentoImage
+        type="large"
         alt={e.attributes.name}
         src={e.attributes.large_thumb_url || ""}
-        width={100}
-        height={100}
-        className=" max-w-lg max-h-lg "
       />
-      <div className="text-2xl font-semibold ">{e.attributes.name}</div>
-      <div className="">{e.attributes.price_formatted}</div>
+      <div className="flex flex-col gap-2">
+        <BentoTitle>{e.attributes.name}</BentoTitle>
+        <BentoSubtitle>{e.attributes.price_formatted}</BentoSubtitle>
 
-      <div
-        className=" text-base text-neutral-600 truncate"
-        dangerouslySetInnerHTML={{ __html: e.attributes.description }}
-      ></div>
+        <BentoText>
+          <div
+            className=" text-base font-light text-ellipsis text-w text-neutral-600 truncate line-clamp-2"
+            dangerouslySetInnerHTML={{ __html: e.attributes.description }}
+          ></div>
+        </BentoText>
+      </div>
+
       <a
         href="https://shop.coolhead.in/checkout/buy/3ecca4d6-e805-4e83-8552-a0b6be52c916?embed=1"
-        className="lemonsqueezy-button"
+        className="lemonsqueezy-button bg-neutral-900 text-white px-4 py-2 rounded-lg mt-8  relative -bottom-7"
       >
         Buy
       </a>
 
       {/* {JSON.stringify(e)} */}
-    </div>
+    </BentoCard>
   );
 }
 
