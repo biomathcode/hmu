@@ -40,7 +40,7 @@ async function Posts() {
               href={"/blogs/" + e.node.slug}
             >
               <BentoContainer type="large">
-                <div className="flex flex-col h-full justify-between ">
+                <div className="flex flex-col min-h-full gap-3 justify-between ">
                   <div className="flex flex-col gap-2">
                     <div className="text-black dark:text-neutral-200">
                       {e.node.title}

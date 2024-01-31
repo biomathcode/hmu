@@ -83,26 +83,49 @@ export const BentoFlavicon = () => {
   );
 };
 
-const BentoSizes: BentoSizes = {
+const sizes = {
   small: {
-    width: "180px",
-    height: "180px",
+    width: "160px",
+    height: "160px",
   },
   long: {
-    width: "380px",
+    width: "360px",
     height: "80px",
   },
   large: {
-    width: "380px",
-    height: "380px",
+    width: "360px",
+    height: "360px",
   },
   medium: {
-    width: "380px",
-    height: "180px",
+    width: "360px",
+    height: "160px",
   },
   vertical: {
-    width: "180px",
-    height: "380px",
+    width: "160px",
+    height: "360px",
+  },
+};
+
+const BentoSizes: BentoSizes = {
+  small: {
+    width: "160px",
+    height: "160px",
+  },
+  long: {
+    width: "360px",
+    height: "80px",
+  },
+  large: {
+    width: "360px",
+    height: "360px",
+  },
+  medium: {
+    width: "360px",
+    height: "160px",
+  },
+  vertical: {
+    width: "160px",
+    height: "360px",
   },
 };
 
@@ -120,7 +143,7 @@ const BentoImageSize: BentoSizes = {
     height: "68px",
   },
   medium: {
-    width: "180px",
+    width: "160px",
     height: "130px",
   },
   large: {
@@ -168,26 +191,31 @@ export function BentoImage({
   src,
   alt = "image",
   type,
+  children,
 }: {
   src: string;
   alt: string;
   type: BentoCardType;
+  children?: ReactNode;
 }) {
   const { width, height } = BentoImageSize[type];
   return (
-    <img
-      data-type={type}
-      className=" object-cover border border-neutral-100 object-center data-[type=small]:hidden data-[type=vertical]:rounded-[10px] data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
-      src={src}
-      style={{
-        width,
-        height,
-        aspectRatio: "4:3",
-      }}
-      alt={alt}
-      width={Number(BentoImageSize[type].width.replace("px", ""))}
-      height={Number(BentoImageSize[type].height.replace("px", ""))}
-    />
+    <div className="relative">
+      {children}
+
+      <img
+        data-type={type}
+        className=" object-cover border border-neutral-100 object-center data-[type=small]:hidden data-[type=vertical]:rounded-[10px] data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
+        src={src}
+        style={{
+          width,
+          height,
+        }}
+        alt={alt}
+        width={Number(BentoImageSize[type].width.replace("px", ""))}
+        height={Number(BentoImageSize[type].height.replace("px", ""))}
+      />
+    </div>
   );
 }
 
@@ -231,7 +259,7 @@ export function BentoContainer({
   return (
     <div
       data-bento-card={type}
-      className=" shadow-sm  w-full h-full p-6 absolute top-0 dark:shadow-[0_2px_4px_rgba(255,255,255,.04)]  font-semibold dark:text-white   dark:shadow-neutral-700 "
+      className="   w-full  p-6 absolute top-0 dark:shadow-[0_2px_4px_rgba(255,255,255,.04)]  font-semibold dark:text-white   dark:shadow-neutral-700 "
     >
       {children}
     </div>

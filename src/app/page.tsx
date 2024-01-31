@@ -92,56 +92,6 @@ export default function Home() {
               </div>
             </BentoContainer>
           </BentoCard>
-
-          <div className="flex flex-col h-full gap-[20px] justify-center ">
-            <div className="flex gap-[20px] ">
-              <BentoCard
-                type="small"
-                className="animate-in fade-in slide-in-from-bottom-11 fill-mode-both  duration-1000 delay-800 gap-3  flex flex-col"
-              >
-                <BentoContainer type="small">
-                  <div className="flex flex-col gap-2">
-                    <BentoFlavicon />
-                    <BentoTitle type="small">
-                      Pratik Sharma - Web Developer from New Delhi
-                    </BentoTitle>
-                    <BentoSubtitle> coolhead.in</BentoSubtitle>
-                  </div>
-                </BentoContainer>
-              </BentoCard>
-
-              <BentoCard
-                type="small"
-                className="animate-in fade-in slide-in-from-bottom-11 fill-mode-both  duration-1000 delay-800 gap-3  flex flex-col"
-              >
-                <BentoFlavicon />
-                <BentoTitle>
-                  Pratik Sharma - Web Developer from New Delhi
-                </BentoTitle>
-                <BentoSubtitle> coolhead.in</BentoSubtitle>
-              </BentoCard>
-            </div>
-
-            <BentoCard type="medium" isLink href="https://coolhead.in">
-              <BentoContainer type="medium">
-                <div className="flex h-full justify-between">
-                  <div className="flex gap-3 flex-col">
-                    <BentoFlavicon />
-                    <BentoTitle type="medium">
-                      Pratik Sharma - Web Developer from New Delhi alkmsdf
-                      kmalksmd klfmaklsmdkfl madfkdmslafmds f
-                    </BentoTitle>
-                    <BentoSubtitle>coolhead.in</BentoSubtitle>
-                  </div>
-                  <BentoImage
-                    src="/og.jpeg"
-                    alt="Profile Image"
-                    type="medium"
-                  />
-                </div>
-              </BentoContainer>
-            </BentoCard>
-          </div>
         </div>
 
         <Link
@@ -151,71 +101,6 @@ export default function Home() {
           <div className="font-sm text-neutral-500">{"##  "}</div>
           Project Showcase
         </Link>
-
-        <BentoCard type="large">
-          <BentoContainer type="large">
-            <Carousel className="w-full max-w-xs">
-              <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <CarouselItem key={index}>
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-2">
-                          <span className="text-4xl font-semibold">
-                            {index + 1}
-                          </span>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </BentoContainer>
-        </BentoCard>
-
-        <div className="flex gap-4  mt-5  flex-col md:flex-row justify-center md:justify-normal items-center">
-          <BentoCard
-            type="vertical"
-            className="relative"
-            rounded={true}
-            // border="1px solid #eee"
-          >
-            <div className="flex flex-col h-full justify-between">
-              <div className="flex gap-3 flex-col">
-                <BentoFlavicon />
-                <div className=" text-[14px] max-w-fit font-normal">
-                  Pratik Sharma - Web Developer from New Delhi
-                </div>
-                <div className="text-neutral-500 text-[12px] font-normal ">
-                  coolhead.in
-                </div>
-              </div>
-              <BentoImage src="/og.jpeg" alt="Profile Image" type="vertical" />
-            </div>
-            {/* <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div> */}
-          </BentoCard>
-
-          <div className="flex flex-wrap gap-5  justify-center md:justify-normal items-center  ">
-            {[1, 2, 3, 4].map((e) => (
-              <BentoCard
-                key={e}
-                className="bg-[#70bce9] text-white"
-                type="small"
-                rounded={true}
-                border="none"
-              >
-                <BentoText>
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam
-                  ullam hic porro non corrupti, dolore iusto, ipsa commodi alias
-                  earum et est, architecto nisi tenetur! Voluptate, molestiae
-                  explicabo! At, voluptate.
-                </BentoText>
-              </BentoCard>
-            ))}
-          </div>
-        </div>
 
         {/* 
         <div className="flex gap-[20px]  flex-col md:flex-row justify-center md:justify-normal items-center">

@@ -20,6 +20,10 @@ query Publication($host: String!, $first: Int!, $after: String) {
           coverImage {
             url
           }
+          author {
+            name
+            profilePicture
+          }
           readTimeInMinutes
         }
         
@@ -35,6 +39,7 @@ query Publication($host: String!, $first: Int!, $after: String) {
       }
     }
     author {
+        name
       profilePicture
     }
     links {

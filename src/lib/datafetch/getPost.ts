@@ -10,6 +10,7 @@ query Publication($host: String!, $first: Int!) {
     title
     displayTitle
     favicon
+    
     posts(first: $first){
       pageInfo {
         endCursor
@@ -23,6 +24,10 @@ query Publication($host: String!, $first: Int!) {
           subtitle
           coverImage {
             url
+          }
+          author {
+            name
+            profilePicture
           }
           readTimeInMinutes
         }

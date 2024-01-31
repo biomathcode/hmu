@@ -18,6 +18,8 @@ query Publication($host: String!, $first: Int!) {
     }
     author {
       name
+      profilePicture
+
       
     }
     followersCount
@@ -32,6 +34,10 @@ query Publication($host: String!, $first: Int!) {
           subtitle
           coverImage {
             url
+          }
+          author {
+            name
+            profilePicture
           }
           readTimeInMinutes
         }
