@@ -8,7 +8,13 @@ import {
   Instagram,
   Linkedin,
   Hashnode,
+  Youtube,
+  Twitter,
+  Mastodon,
+  DailyDev,
 } from "@/assert/allicons";
+import { cn } from "@/lib/utils";
+import { ExternalLink, Globe } from "lucide-react";
 
 const styles = {
   width: "24px",
@@ -27,6 +33,26 @@ interface BentoSizes {
 export const BentoDescription = ({ children }: PropsWithChildren) => {
   return (
     <div className="text-neutral-500 text-[12px] font-normal ">{children}</div>
+  );
+};
+
+export const BentoBackground = ({
+  classname,
+  background,
+}: {
+  classname: string;
+  background?: string;
+}) => {
+  return (
+    <div
+      style={{
+        background: background,
+      }}
+      className={cn(
+        " -z-10 pointer-events-none absolute bottom-0 left-0 right-0 top-0 ",
+        classname
+      )}
+    ></div>
   );
 };
 
@@ -62,13 +88,38 @@ export const BentoButton = ({
   );
 };
 
-export const BentoFlavicon = ({ icon }: { icon: keyof typeof Icons }) => {
+export const BentoFlavicon = ({
+  icon,
+  color,
+}: {
+  icon: keyof typeof Icons;
+  color?: string;
+}) => {
   const Icons = {
     figma: <Figma style={styles} />,
     github: <Github style={styles} />,
     instagram: <Instagram style={styles} />,
     hashnode: <Hashnode style={styles} />,
     linkedin: <Linkedin style={styles} />,
+    youtube: <Youtube style={styles} />,
+    twitter: <Twitter style={styles} />,
+    mastodon: <Mastodon style={styles} />,
+    dailydev: <DailyDev style={styles} />,
+    website: <Globe style={styles} />,
+  };
+
+  const colors = {
+    twitter: "#1DA1F2",
+    figma: "#F24E1E",
+    github: "#1B1F23",
+    instagram: "#E4405F",
+    linkedin: "#0077B5",
+    youtube: "#fff",
+    website: "#000",
+
+    mastodon: "#2C5282",
+    dailydev: "#111",
+    hashnode: "#fff",
   };
   return (
     <div
@@ -79,7 +130,8 @@ export const BentoFlavicon = ({ icon }: { icon: keyof typeof Icons }) => {
         padding: "6px",
         borderRadius: "10px",
         display: "flex",
-        background: "#fff",
+        background: colors[icon],
+        color: "#fff",
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -265,7 +317,7 @@ export function BentoContainer({
   return (
     <div
       data-bento-card={type}
-      className="   w-full  p-6 absolute top-0   font-semibold dark:text-white    "
+      className=" w-full  p-6 absolute top-0   font-semibold dark:text-white    "
     >
       {children}
     </div>
@@ -356,8 +408,6 @@ function BentoCard({
           className="hover:opacity-10 transition-all duration-300 ease-linear  opacity-0 bg-neutral-300"
         ></Link>
       )}
-
-      {/* <div className=" pointer-events-none absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div> */}
     </div>
   );
 }

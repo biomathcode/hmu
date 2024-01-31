@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import Head from "next/head";
 
 import Script from "next/script";
+import LemonPay from "@/lib/Payments/LemonPay";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       </Head>
 
       <body
+        suppressHydrationWarning={true}
         className={cn(
           "min-h-screen bg-background font-sans antialiased   ",
           inter.variable
@@ -41,9 +43,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <LemonPay />
           {children}
           <Nav />
         </ThemeProvider>
+        <Script
+          strategy="lazyOnload"
+          id="lemonPay"
+          src="https://app.lemonsqueezy.com/js/lemon.js"
+        />
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 import Header from "@/components/ Blogs";
 
 import BentoCard, {
+  BentoBackground,
   BentoContainer,
   BentoFlavicon,
   BentoImage,
@@ -64,22 +65,55 @@ export async function generateMetadata() {
 const SmallBento = ({
   value,
   link,
-  username,
+
   type,
 }: {
-  value?: string;
+  value?: any;
   link?: string;
-  username?: string;
+
   type?: any;
 }) => {
+  const colors: any = {
+    twitter: {
+      color: "#1DA1F2",
+      regx: /twitter\.com\/([a-zA-Z0-9_]+)/,
+    },
+    figma: {
+      color: "#F24E1E",
+      regx: /figma\.com\/(user|users)\/([a-zA-Z0-9-]+)/,
+    },
+    github: { color: "#1B1F23", regx: /github\.com\/([a-zA-Z0-9-]+)/ },
+    instagram: { color: "#E4405F", regx: /instagram\.com\/([a-zA-Z0-9_]+)/ },
+    linkedin: { color: "#0077B5", regx: /linkedin\.com\/in\/([a-zA-Z0-9-]+)/ },
+    youtube: { color: "#fff", regx: /youtube\.com\/channel\/([a-zA-Z0-9_-]+)/ },
+
+    mastodon: { color: "#2C5282", regx: null },
+    dailydev: { color: "#333", regx: /app\.daily\.dev\/([a-zA-Z0-9_]+)/ },
+    hashnode: { color: "#fff", regx: /hashnode.com\/@([a-zA-Z0-9-]+)/ },
+  };
+
+  const username = link?.match(colors[type]?.regx)?.[1];
+
+  console.log(username);
+
   return (
-    <BentoCard isLink href={link} type="small">
-      <BentoContainer type="small">
-        <BentoFlavicon icon={type} />
-        <BentoTitle>{value}</BentoTitle>
-        <BentoSubtitle>{username}</BentoSubtitle>
-      </BentoContainer>
-    </BentoCard>
+    link && (
+      <BentoCard isLink href={link} type={"small"}>
+        <BentoContainer type="long">
+          <BentoFlavicon icon={type} />
+          <div className="flex flex-col gap-4 mt-2">
+            <BentoTitle>{value}</BentoTitle>
+            <BentoSubtitle>
+              {value == "website" ? link : username}
+            </BentoSubtitle>
+          </div>
+        </BentoContainer>
+        <BentoBackground
+          classname="opacity-10"
+          background={colors[value]?.color}
+        />
+      </BentoCard>
+    )
   );
 };
 
@@ -90,7 +124,7 @@ export default async function Home() {
   console.log(links);
   return (
     <div className="flex w-full flex-row gap-20 lg:gap-0 justify-between  md:justify-around  items-start    max-md:flex-col max-md:items-center ">
-      <div className=" mr-28 max-md:mr-0  relative  lg:sticky lg:h-screen top-24 max-lg:justify-start max-w-[320px] max-h-[500px]  justify-center items-center flex">
+      <div className="  mr-28 max-md:mr-0  relative  lg:sticky lg:h-screen top-24 max-lg:justify-start max-w-[320px] max-h-[500px]  justify-center items-center flex">
         <Header staticdata={staticdata} />
       </div>
 
@@ -159,9 +193,9 @@ export default async function Home() {
           })}
         </div>
 
-        <LoadMore
+        {/* <LoadMore
           initialPageInfo={staticdata.data.publication.posts.pageInfo}
-        />
+        /> */}
       </div>
     </div>
   );

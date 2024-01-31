@@ -19,7 +19,7 @@ const LemonPay: React.FC = () => {
   return (
     <Script
       id="lemonPay"
-      strategy="lazyOnload"
+      strategy="beforeInteractive"
       src="https://app.lemonsqueezy.com/js/lemon.js"
     />
   );

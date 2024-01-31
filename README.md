@@ -7,15 +7,11 @@ HMU is a porfolio template for bloggers, indie developer, any 1 who is on intern
 #### Tech Stack
 - Tailwind
 - Nextjs
-- [Resend](https://resend.com/)
 - [Lemon Squeezy](https://www.lemonsqueezy.com/)
 - [Headless hashnode](https://github.com/hashnode/starter-kit)
-- [Open AI Wisper](https://github.com/openai/whisper)
 - [ChatGPT](https://chat.openai.com/)
-- [Dnd Kit](https://dndkit.com/)
 - [Nextjs Themes](https://www.npmjs.com/package/next-themes)
-- [React-query](https://tanstack.com/query/latest/docs/react/overview)
-- [Kbar](https://kbar.vercel.app/)
+
 - [Tailwind Animation](https://www.npmjs.com/package/tailwindcss-animate#changing-animation-delay)
 - [Lucide React icons](https://lucide.dev/guide/packages/lucide-react)
 
@@ -74,3 +70,6 @@ https://dev.to/newbing/how-to-use-lemon-squeezy-as-a-payment-in-nextjs-e46
 Infinite scroll: https://www.youtube.com/watch?v=FKZAXFjxlJI
 
 https://tailwindcss.com/blog/tailwindcss-v3-4
+
+
+Checkout Link for LemonSqueezy = https://www.supaboost.dev/guides/supabase-nextjs-lemon-squeezy/rendering-lemon-squeezy-products
