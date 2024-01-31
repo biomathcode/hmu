@@ -15,7 +15,9 @@ type linkPreviewType = {
 };
 
 async function LinkPreview({ link }: linkPreviewType) {
-  const url = process.env.VERCEL_URL || "http://localhost:3000";
+  const url = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
   const res = await fetch(`${url}/api/linkpreview?link=${link}`);
 
   const data = await res.json();
