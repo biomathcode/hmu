@@ -128,7 +128,7 @@ export default async function Home() {
         <Header staticdata={staticdata} />
       </div>
 
-      <div className=" flex flex-col   text-left   py-24 ">
+      <div className=" flex flex-col   text-left max-w-3xl  py-24 ">
         <div className="flex flex-wrap gap-5">
           {Object.entries(links).map(([key, value]) => (
             <SmallBento
@@ -193,9 +193,9 @@ export default async function Home() {
           })}
         </div>
 
-        {/* <LoadMore
+        <LoadMore
           initialPageInfo={staticdata.data.publication.posts.pageInfo}
-        /> */}
+        />
       </div>
     </div>
   );

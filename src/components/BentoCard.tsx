@@ -317,7 +317,7 @@ export function BentoContainer({
   return (
     <div
       data-bento-card={type}
-      className=" w-full  p-6 absolute top-0   font-semibold dark:text-white    "
+      className=" w-full h-full  p-6 absolute top-0   font-semibold dark:text-white    "
     >
       {children}
     </div>
