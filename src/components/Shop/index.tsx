@@ -10,7 +10,7 @@ import BentoCard, {
 
 function ShopCard({ e }: { e: any }) {
   return (
-    <BentoCard type="large" key={e.id} className="flex flex-col gap-3">
+    <BentoCard type="large" key={e.id}>
       <BentoContainer type="large">
         <BentoImage
           type="large"

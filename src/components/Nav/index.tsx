@@ -22,8 +22,8 @@ const Links = [
     isRedirect: false,
   },
   {
-    id: 1,
-    label: "home",
+    id: 2,
+    label: "blogs",
     icon: <Pencil1Icon className=" w-6 h-6 " width={12} />,
     url: "/blogs",
     isRedirect: false,

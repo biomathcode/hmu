@@ -3,20 +3,17 @@ import BentoCard, { BentoImage } from "../BentoCard";
 import Link from "next/link";
 import SubscribeBox from "../SubscribeBox";
 import SeoHome from "../Seo/home";
-import { fetchData } from "@/lib/datafetch/getHome";
 
-async function Posts() {
-  const staticdata = await fetchData();
-
+async function Header({ staticdata }: { staticdata: any }) {
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-5 duration-1000 text-black sticky top-3 dark:text-white flex flex-col gap-4">
+    <div className="animate-in min-w-min fade-in slide-in-from-bottom-5 duration-1000 text-black   dark:text-white flex flex-col gap-4">
       <img
         alt={"Profile Pic " + staticdata.data.publication.title}
         className=" w-32 h-32 rounded-full border border-neutral-400 border-opacity-80"
-        src={staticdata.data.publication.favicon}
+        src={staticdata.data.publication.author.profilePicture}
       />
-      <div className="text-neutal-800 md:text-5xl font-bold  text-2xl   ">
-        {staticdata.data.publication.title}
+      <div className="text-neutal-800 md:text-5xl font-bold  text-2xl text-nowrap   ">
+        {staticdata.data.publication.author.name}
       </div>
 
       <div
@@ -32,4 +29,4 @@ async function Posts() {
   );
 }
 
-export default Posts;
+export default Header;

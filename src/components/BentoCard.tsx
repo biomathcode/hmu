@@ -1,7 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { PropsWithChildren, ReactNode } from "react";
-import { Figma, Onepassword } from "@/assert/allicons";
+import React, { PropsWithChildren, ReactElement, ReactNode } from "react";
+import {
+  Figma,
+  Github,
+  Onepassword,
+  Instagram,
+  Linkedin,
+  Hashnode,
+} from "@/assert/allicons";
+
+const styles = {
+  width: "24px",
+  height: "24px",
+};
+
 // TODO :remove Bento Card default width and height and replace with tailwind css
 
 type BentoCardType = "small" | "large" | "medium" | "long" | "vertical";
@@ -9,15 +22,6 @@ type BentoCardType = "small" | "large" | "medium" | "long" | "vertical";
 interface BentoSizes {
   [key: string]: { width: string; height: string };
 }
-
-const Flavicon = {
-  width: "40px",
-  height: "40px",
-};
-
-type BentoFlaviconType = {
-  icon: "figma" | "instagram" | "";
-};
 
 // similar to subtitle but multiline is allowed
 export const BentoDescription = ({ children }: PropsWithChildren) => {
@@ -58,7 +62,14 @@ export const BentoButton = ({
   );
 };
 
-export const BentoFlavicon = () => {
+export const BentoFlavicon = ({ icon }: { icon: keyof typeof Icons }) => {
+  const Icons = {
+    figma: <Figma style={styles} />,
+    github: <Github style={styles} />,
+    instagram: <Instagram style={styles} />,
+    hashnode: <Hashnode style={styles} />,
+    linkedin: <Linkedin style={styles} />,
+  };
   return (
     <div
       style={{
@@ -68,17 +79,12 @@ export const BentoFlavicon = () => {
         padding: "6px",
         borderRadius: "10px",
         display: "flex",
-        background: "#222",
+        background: "#fff",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <Figma
-        style={{
-          width: "24px",
-          height: "24px",
-        }}
-      />
+      {Icons[icon]}
     </div>
   );
 };
@@ -259,7 +265,7 @@ export function BentoContainer({
   return (
     <div
       data-bento-card={type}
-      className="   w-full  p-6 absolute top-0 dark:shadow-[0_2px_4px_rgba(255,255,255,.04)]  font-semibold dark:text-white   dark:shadow-neutral-700 "
+      className="   w-full  p-6 absolute top-0   font-semibold dark:text-white    "
     >
       {children}
     </div>

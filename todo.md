@@ -4,6 +4,8 @@
 - [X] OG image for posts
 - [X] Og image for home
 - [ ] Create single component for icons
+- [ ] Add Search as well
+- [ ] 
 
 ---
 
@@ -17,8 +19,8 @@
 - [ ] Widget for location, spotify- playlist, 
 - [ ] Text, image and video widget for bento
 - [ ] Improve the Shop page
-- [ ] Add Subscription box
-- [ ] Improve the Nav bar
+- [X] Add Subscription box
+- [X] Improve the Nav bar
 - [ ] Create a Marketing pages for shop
 - [ ] Create Components for Marketing page
 
