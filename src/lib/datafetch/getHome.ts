@@ -26,6 +26,10 @@ query Publication($host: String!, $first: Int!) {
     isTeam
     posts(first: $first){
       totalDocuments
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
       edges {
         node {
           id
