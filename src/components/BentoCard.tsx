@@ -221,7 +221,7 @@ export function BentoTitle({
   return (
     <div
       data-type={type}
-      className=" line-clamp-3 text-[14px] font-normal data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2 "
+      className=" line-clamp-3 text-lg font-normal data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2 "
     >
       {children}
     </div>
@@ -263,7 +263,7 @@ export function BentoImage({
 
       <img
         data-type={type}
-        className=" object-cover border border-neutral-100 object-center data-[type=small]:hidden data-[type=vertical]:rounded-[10px] data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
+        className=" object-cover border border-neutral-600 object-center data-[type=small]:hidden data-[type=vertical]:rounded-[10px] data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
         src={src}
         style={{
           width,

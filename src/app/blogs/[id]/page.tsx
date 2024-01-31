@@ -164,7 +164,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     </li>
   ));
   return (
-    <div className=" markdown  flex justify-center mt-20 max-w-screen-md text-wrap ">
+    <div className=" markdown overflow-x-hidden no-scrollbar  flex justify-center mt-12 max-w-screen-md text-wrap ">
       <div className="  flex flex-col items-center gap-2  text-left  ">
         <h1 className=" mx-auto w-full px-5  text-3xl font-medium capitalize dark:text-white text-neutral-900">
           {newdata.title}
@@ -182,10 +182,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
         <img
           src={newdata.coverImage?.url}
-          style={{
-            width: "500px",
-            height: "300px",
-          }}
+          className="h-96 w-full object-cover rounded-md"
         />
 
         <MarkdownToHtml contentMarkdown={newdata.content.markdown} />

@@ -128,7 +128,7 @@ export default async function Home() {
       </div>
 
       <div className=" flex flex-col   text-left max-w-3xl  py-24 ">
-        <div className="flex flex-wrap gap-5">
+        <div className="flex flex-wrap gap-5 justify-center">
           {Object.entries(links).map(([key, value]) => (
             <SmallBento
               key={key}
@@ -147,7 +147,7 @@ export default async function Home() {
           Writings
         </Link>
 
-        <div className="flex flex-wrap gap-8">
+        <div className="flex flex-wrap gap-8 justify-center">
           {staticdata.data.publication.posts.edges.map((e: any) => {
             return (
               <BentoCard
