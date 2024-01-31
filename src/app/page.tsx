@@ -191,8 +191,6 @@ export default async function Home() {
         </Link>
 
         <Shop />
-
-        <LinkPreview link="https://blog.coolhead.in" />
       </div>
     </div>
   );
