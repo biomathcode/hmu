@@ -13,6 +13,7 @@ export function ModeToggle() {
     <>
       {" "}
       <button
+        name="themetoggle"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         className="dark:bg-neutral-900 bg-neutral-100 text-neutral-900 p-2 dark:text-neutral-400 rounded-full flex justify-center  "
       >

@@ -7,10 +7,13 @@ import BentoCard, {
 import Link from "next/link";
 import { getPosts } from "@/lib/datafetch/getPost";
 import LoadMore from "@/components/LoadMore";
+import { getPostsByTags } from "@/lib/datafetch/getPostByTags";
 
 async function Posts({ params }: { params: { id: string } }) {
-  const staticdata = await getPosts();
+  const tag = params.id;
+  const staticdata = await getPostsByTags({ after: "", tag: tag });
 
+  console.log("staticdata", staticdata);
   return (
     <div className="text-black dark:text-white flex flex-col gap-4 mt-10  no-scrollbar  items-center">
       <img
@@ -60,10 +63,6 @@ async function Posts({ params }: { params: { id: string } }) {
             </BentoCard>
           );
         })}
-
-        <LoadMore
-          initialPageInfo={staticdata.data.publication.posts.pageInfo}
-        />
       </div>
     </div>
   );

@@ -393,6 +393,7 @@ function BentoCard({
       {isLink && (
         <Link
           href={href}
+          aria-label={href}
           target={external ? "_blank" : "_self"}
           style={{
             zIndex: "20",

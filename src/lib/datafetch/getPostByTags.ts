@@ -1,104 +1,112 @@
-const apiUrl = "YOUR_GRAPHQL_API_ENDPOINT";
+const endpoint = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT || ""; // Replace with your actual GraphQL endpoint URL
+const host = process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST || ""; // Replace with the desired host value
+const first = 20;
 
 const tagPostsByPublicationQuery = `
-  query TagPostsByPublication($host: String!, $tagSlug: String!, $first: Int!, $after: String) {
-    publication(host: $host) {
-      id
-      title
-      displayTitle
-      url
-      metaTags
-      favicon
-      isTeam
-      followersCount
-      descriptionSEO
-      posts(first: $first, after: $after) {
-        totalDocuments
-        edges {
-          node {
-            id
-            title
-            url
-            publishedAt
-            slug
-            brief
-            author {
-              name
-              profilePicture
-            }
-            coverImage {
-              url
-            }
-            comments {
-              totalDocuments
-            }
-          }
-        }
-      }
-      author {
-        name
-        username
-        profilePicture
-        followersCount
-      }
-      ogMetaData {
-        image
-      }
-      preferences {
-        logo
-        darkMode {
-          logo
-        }
-        navbarItems {
+ query Publication($host: String!, $first: Int!, $tagSlug: String!) {
+  publication(host:$host) {
+    id
+    title
+    url
+    displayTitle
+    favicon
+    descriptionSEO
+    ogMetaData {
+      image
+    }
+    preferences {
+      logo
+      
+    }
+    author {
+      name
+      profilePicture
+    }
+    followersCount
+    metaTags
+    
+    
+    posts(first: $first ,filter: {tagSlugs: [$tagSlug]} ){
+      edges {
+        node {
           id
-          type
-          label
-          url
+          slug
+          title
+          subtitle
+          coverImage {
+            url
+          }
+          readTimeInMinutes
         }
+      
+        
       }
-      links {
-        twitter
-        github
-        linkedin
-        hashnode
+      pageInfo {
+				endCursor
+        hasNextPage}
       }
-      integrations {
-        umamiWebsiteUUID
-        gaTrackingID
-        fbPixelID
-        hotjarSiteID
-        matomoURL
-        matomoSiteID
-        fathomSiteID
-        fathomCustomDomain
-        fathomCustomDomainEnabled
-        plausibleAnalyticsEnabled
+    followersCount
+    domainInfo {
+      domain {
+        host
       }
     }
+   
+    links {
+      github
+      youtube
+      instagram
+      twitter
+      hashnode
+      linkedin
+      dailydev
+      website
+      mastodon
+      
+    }
+    
+    about {
+      markdown
+    }
   }
+}
+
 `;
 
-const variables = {
-  host: "YOUR_HOST",
-  tagSlug: "YOUR_TAG_SLUG",
-  first: 10, // or any other value for 'first'
-  after: null, // or provide a cursor for 'after' if needed
-};
+export async function getPostsByTags({
+  after,
+  tag,
+}: {
+  after: string;
+  tag: string;
+}) {
+  const variables = (after: string, tag: string) => ({
+    host: host,
+    tagSlug: tag,
+    first: 20, // or any other value for 'first'
+    after, // or provide a cursor for 'after' if needed
+  });
 
-fetch(apiUrl, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    // Add any additional headers if needed
-  },
-  body: JSON.stringify({
-    query: tagPostsByPublicationQuery,
-    variables,
-  }),
-})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("GraphQL Response:", data);
-    // Handle the GraphQL response here
-  })
-  .catch((error) => console.error("GraphQL Request Error:", error));
+  const requestOptions = (after: string, tag: string) => ({
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      // Add any additional headers as needed
+    },
+    body: JSON.stringify({
+      query: tagPostsByPublicationQuery,
+      variables: variables(after, tag),
+    }),
+  });
+  try {
+    const response = await fetch(endpoint, requestOptions(after, tag));
+    const data = await response.json();
+
+    console.log("load more data", data);
+
+    // Handle the data as needed
+    return data;
+  } catch (error) {
+    console.error("Error during GraphQL request:", error);
+  }
+}
