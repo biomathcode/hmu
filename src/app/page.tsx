@@ -87,6 +87,7 @@ const SmallBento = ({
     instagram: { color: "#E4405F", regx: /instagram\.com\/([a-zA-Z0-9_]+)/ },
     linkedin: { color: "#0077B5", regx: /linkedin\.com\/in\/([a-zA-Z0-9-]+)/ },
     youtube: { color: "#fff", regx: /youtube\.com\/channel\/([a-zA-Z0-9_-]+)/ },
+    website: { color: "#fff", regx: /https?:\/\/(?:www\.)?([a-zA-Z0-9_-]+)/ },
 
     mastodon: { color: "#2C5282", regx: null },
     dailydev: { color: "#333", regx: /app\.daily\.dev\/([a-zA-Z0-9_]+)/ },
@@ -97,14 +98,17 @@ const SmallBento = ({
 
   return (
     link && (
-      <BentoCard isLink href={link} type={"small"}>
+      <BentoCard
+        className=" motion-reduce:animate-none animate-in fade-in-10 slide-in-from-bottom-9 delay-75 duration-700"
+        isLink
+        href={link}
+        type={"small"}
+      >
         <BentoContainer type="long">
           <BentoFlavicon icon={type} />
           <div className="flex flex-col gap-4 mt-2">
-            <BentoTitle>{value}</BentoTitle>
-            <BentoSubtitle>
-              {value == "website" ? link : username}
-            </BentoSubtitle>
+            <BentoSubtitle type="small">{username}</BentoSubtitle>
+            <BentoTitle type="small">{value}</BentoTitle>
           </div>
         </BentoContainer>
         <BentoBackground
@@ -140,6 +144,7 @@ export default async function Home() {
         </div>
 
         <Link
+          id="writings"
           href={"#writings"}
           className="my-10 font-semibold text-2xl items-center flex gap-1"
         >
@@ -184,7 +189,8 @@ export default async function Home() {
 
         <Link
           href={"#products"}
-          className="my-5 font-semibold text-2xl items-center flex gap-1"
+          id="products"
+          className="my-2 font-semibold text-2xl items-center flex gap-1"
         >
           <div className="font-sm text-neutral-500">{"##  "}</div>
           Shop

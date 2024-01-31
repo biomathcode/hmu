@@ -12,7 +12,7 @@ async function Header({ staticdata }: { staticdata: any }) {
   );
 
   return (
-    <div className="animate-in min-w-min fade-in slide-in-from-bottom-5 duration-1000 text-black   dark:text-white flex flex-col gap-4">
+    <div className=" motion-reduce:animate-none animate-in min-w-min fade-in slide-in-from-bottom-5 duration-1000 text-black   dark:text-white flex flex-col gap-4">
       <img
         alt={"Profile Pic " + staticdata.data.publication.title}
         className=" w-32 h-32 rounded-full border border-neutral-400 border-opacity-80"

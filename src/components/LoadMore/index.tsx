@@ -5,6 +5,8 @@ import { useState } from "react";
 import BentoCard, {
   BentoContainer,
   BentoImage,
+  BentoSubtitle,
+  BentoTitle,
   BentoToolTip,
 } from "../BentoCard";
 import { getMorePost } from "@/lib/datafetch/loadmore";
@@ -37,44 +39,41 @@ function LoadMore({ publication, initialPosts, initialPageInfo }: any) {
 
   return (
     <>
-      {posts?.map((e: any, i: any) => {
-        return (
-          <Link href={"/blogs/" + e.slug} key={i}>
-            <div className="dark:text-white" key={i}>
-              <BentoCard type="large">
-                <BentoContainer type="large">
-                  <div className="flex flex-col h-full justify-between ">
-                    <div className="flex flex-col gap-2">
-                      <div className="text-black dark:text-neutral-200">
-                        {e.title}
-                      </div>
-                      <div className="text-neutral-600 text-md font-normal dark:text-neutral-200">
-                        {e.subtitle}
-                      </div>
-                      <div className=" text-neutral-400 font-normal dark:text-white">
-                        {e.readTimeInMinutes} mins
-                      </div>
-                    </div>
-                    <BentoImage
-                      type="large"
-                      src={e.coverImage?.url}
-                      alt={e?.title}
-                    />
+      <div className="flex flex-wrap gap-8 justify-center mt-8">
+        {posts?.map((e: any, i: any) => {
+          return (
+            <BentoCard type="large" key={e.id} isLink href={"/blogs/" + e.slug}>
+              <BentoContainer type="large">
+                <div className="flex flex-col min-h-full gap-3 justify-between ">
+                  <div className="flex flex-col gap-2">
+                    <BentoTitle>{e.title}</BentoTitle>
+                    <BentoSubtitle>{e.subtitle}</BentoSubtitle>
                   </div>
-                </BentoContainer>
-              </BentoCard>
-            </div>
-          </Link>
-        );
-      })}
-      {isNextPage && (
-        <button
-          className=" w-fit py-4 px-5 mb-36 dark:text-white border-2 rounded-sm "
-          onClick={() => loadMore()}
-        >
-          Load More
-        </button>
-      )}
+                  <BentoImage
+                    type="large"
+                    src={e.coverImage?.url}
+                    alt={e.title}
+                  >
+                    <BentoToolTip type="small">
+                      {e.readTimeInMinutes} mins
+                    </BentoToolTip>
+                  </BentoImage>
+                </div>
+              </BentoContainer>
+            </BentoCard>
+          );
+        })}
+      </div>
+      <div className="flex justify-center mt-10">
+        {isNextPage && (
+          <button
+            className=" transition-colors duration-200 rounded-lg w-fit py-4 px-5 mb-36 dark:text-white  hover:bg-neutral-800 hover:text-neutral-200 bg-neutral-200 font-medium "
+            onClick={() => loadMore()}
+          >
+            Load More
+          </button>
+        )}
+      </div>
     </>
   );
 }

@@ -135,6 +135,7 @@ export const BentoFlavicon = ({
         justifyContent: "center",
         alignItems: "center",
       }}
+      className="border border-black/5 shadow"
     >
       {Icons[icon]}
     </div>
@@ -214,14 +215,19 @@ const BentoImageSize: BentoSizes = {
 export function BentoTitle({
   children,
   type,
+  classname,
 }: {
   children: ReactNode;
   type?: BentoCardType;
+  classname?: string;
 }) {
   return (
     <div
       data-type={type}
-      className=" line-clamp-3 text-lg font-normal data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2 "
+      className={cn(
+        " line-clamp-3 text-lg font-normal data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2 data-[type=small]:text-sm ",
+        classname
+      )}
     >
       {children}
     </div>
@@ -238,7 +244,7 @@ export function BentoSubtitle({
   return (
     <div
       data-type={type}
-      className="text-neutral-500 text-[12px] font-normal  data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2  "
+      className="text-neutral-500 text-[14px] font-normal line-clamp-3  data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-1  "
     >
       {children}
     </div>
@@ -384,10 +390,11 @@ function BentoCard({
           transition: "border .2s ease-in-out,opacity .2s ease-in-out",
           pointerEvents: "none",
           borderRadius: "19px",
+          zIndex: "30",
 
           maskImage: "linear-gradient(0deg,transparent,#000)",
         }}
-        className=" border-[color:hsla(0,0%,100%,.22)]   dark:border-4  dark:border-[color:#292929]"
+        className=" border-[color:hsla(0,0%,100%,.22)] hover:bottom-4 border-0 absolute  dark:border-4  dark:border-[color:#292929]"
       ></div>
 
       {isLink && (

@@ -13,9 +13,11 @@ export function ModeToggle() {
     <>
       {" "}
       <button
-        name="themetoggle"
+        id="themetoggle"
+        aria-label="Toggle theme"
+        role="button"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="dark:bg-neutral-900 bg-neutral-100 text-neutral-900 p-2 dark:text-neutral-400 rounded-full flex justify-center  "
+        className="dark:bg-neutral-900 bg-neutral-100 text-neutral-900 p-2 dark:text-neutral-600 rounded-full flex justify-center  "
       >
         <SunIcon className=" w-6 h-6  dark:-rotate-90 dark:scale-0 dark:hidden" />
         <MoonIcon className=" w-6 h-6  transition-all dark:rotate-0 dark:scale-100 hidden dark:block" />

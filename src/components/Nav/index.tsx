@@ -4,6 +4,7 @@ import {
   EnvelopeClosedIcon,
   GitHubLogoIcon,
   HomeIcon,
+  MagnifyingGlassIcon,
   Pencil1Icon,
   Pencil2Icon,
   PersonIcon,
@@ -21,21 +22,28 @@ const Links = [
     url: "/",
     isRedirect: false,
   },
-  {
-    id: 2,
-    label: "blogs",
-    icon: <Pencil1Icon className=" w-6 h-6 " width={12} />,
-    url: "/blogs",
-    isRedirect: false,
-  },
+  // {
+  //   id: 2,
+  //   label: "blogs",
+  //   icon: <Pencil1Icon className=" w-6 h-6 " width={12} />,
+  //   url: "/blogs",
+  //   isRedirect: false,
+  // },
 
-  {
-    id: 6,
-    label: "shop",
-    isRedirect: false,
-    url: "/shop",
-    icon: <BackpackIcon className=" w-6 h-6 " width={12} />,
-  },
+  // {
+  //   id: 3,
+  //   label: "search",
+  //   icon: <MagnifyingGlassIcon className=" w-6 h-6 " width={12} />,
+  //   url: "/search",
+  //   isRedirect: false,
+  // },
+  // {
+  //   id: 6,
+  //   label: "shop",
+  //   isRedirect: false,
+  //   url: "/shop",
+  //   icon: <BackpackIcon className=" w-6 h-6 " width={12} />,
+  // },
 ];
 
 function Nav() {
@@ -51,7 +59,7 @@ function Nav() {
             key={e.id}
             className={`flex  items-center justify-center rounded-3xl ${
               pathname === e.url
-                ? " border-2 border-neutral-400 dark:border-neutral-500 "
+                ? " border-2 border-neutral-700 dark:border-neutral-500 "
                 : ""
             }`}
             // className="flex h-[15px] w-[15px] items-center justify-center rounded-3xl"
@@ -63,6 +71,7 @@ function Nav() {
             </div>
           </Link>
         ))}
+        <MagnifyingGlassIcon className=" w-6 h-6 " width={12} />
         <ModeToggle />
       </div>
     </nav>
