@@ -16,18 +16,18 @@ async function Posts() {
   return (
     <div className="text-black   dark:text-white flex flex-col gap-4 mt-10  no-scrollbar  items-center">
       <img
-        alt={"Profile Pic " + staticdata.data.publication.title}
+        alt={"Profile Pic " + staticdata.data.publication?.title}
         className=" w-32 h-32 rounded-full border border-neutral-400 border-opacity-80"
         src={staticdata.data.publication.favicon}
       />
       <div className="text-neutal-800 text-4xl font-extrabold  ">
-        {staticdata.data.publication.title}
+        {staticdata.data.publication?.title}
       </div>
 
       <div
         className=" max-w-lg dark:text-neutral-400"
         dangerouslySetInnerHTML={{
-          __html: staticdata.data.publication.about.markdown,
+          __html: staticdata.data?.publication?.about?.markdown,
         }}
       />
       <div className="text-black flex flex-col gap-4 ">

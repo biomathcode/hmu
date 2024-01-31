@@ -3649,9 +3649,9 @@ export function DailyDev(props: any) {
       <g
         id="Logo/White"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g id="Icon" transform="translate(4.000000, 11.000000)" fill="#FFFFFF">
           <g

@@ -3,8 +3,14 @@ import BentoCard, { BentoImage } from "../BentoCard";
 import Link from "next/link";
 import SubscribeBox from "../SubscribeBox";
 import SeoHome from "../Seo/home";
+import markdownit from "markdown-it";
 
 async function Header({ staticdata }: { staticdata: any }) {
+  const md = markdownit();
+  const aboutMarkdownHTML = md.render(
+    staticdata.data.publication.about?.markdown || ""
+  );
+
   return (
     <div className="animate-in min-w-min fade-in slide-in-from-bottom-5 duration-1000 text-black   dark:text-white flex flex-col gap-4">
       <img
@@ -19,7 +25,7 @@ async function Header({ staticdata }: { staticdata: any }) {
       <div
         className=" max-w-lg dark:text-neutral-400 mt-3 text-neutral-500 xl:mt-3 xl:text-xl"
         dangerouslySetInnerHTML={{
-          __html: staticdata.data.publication.about.markdown,
+          __html: aboutMarkdownHTML,
         }}
       />
       <SeoHome publication={staticdata.data.publication} />

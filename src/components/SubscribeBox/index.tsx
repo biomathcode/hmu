@@ -46,7 +46,6 @@ function SubscribeBox({ publicationId }: { publicationId: string }) {
               publicationId
             );
 
-            console.log("response", response);
             if (data.status === 200) {
               setReponse("success");
             } else {

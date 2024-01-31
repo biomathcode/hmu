@@ -20,8 +20,6 @@ function LoadMore({ publication, initialPosts, initialPageInfo }: any) {
   const [isNextPage, setIsNextPage] = useState(true);
   const [pageInfo, setPageInfo] = useState<any>(initialPageInfo);
 
-  console.log("pageInfo", pageInfo);
-
   const loadMore = async () => {
     const data = await getMorePost({ after: pageInfo.endCursor });
     if (!data.data.publication) {
@@ -30,8 +28,6 @@ function LoadMore({ publication, initialPosts, initialPageInfo }: any) {
     const newPosts = data.data.publication.posts.edges.map(
       (edge: any) => edge.node
     );
-
-    console.log(newPosts);
 
     setIsNextPage(data.data.publication.posts.pageInfo.hasNextPage);
 

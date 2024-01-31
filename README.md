@@ -65,6 +65,12 @@ bun dev
 ```
 
 
+### Feedback
+
+- max-width for name as well
+- 
+
+
 ### References 
 https://dev.to/newbing/how-to-use-lemon-squeezy-as-a-payment-in-nextjs-e46
 Infinite scroll: https://www.youtube.com/watch?v=FKZAXFjxlJI
