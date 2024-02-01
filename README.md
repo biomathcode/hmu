@@ -1,5 +1,5 @@
 ### HMU: Hit me up
-HMU is a porfolio template for bloggers, indie developer, any 1 who is on internet and wants to write and sell its goods. The aim is to be composable, adaptable and plug&play. It's a Static Site Generator.  
+HMU is a portfolio template for bloggers, indie developer, any 1 who is on internet and wants to write and sell its goods. The aim is to be composable, adaptable and plug&play.
 
 
 ![header Image for the project](screenshot.webp)

@@ -61,7 +61,7 @@ function SubscribeBox({ publicationId }: { publicationId: string }) {
               className="block text-xs font-medium text-neutral-600 dark:text-neutral-400"
             >
               {" "}
-              Subscribe to Newletter{" "}
+              Subscribe to Newsletter{" "}
             </label>
 
             <input
