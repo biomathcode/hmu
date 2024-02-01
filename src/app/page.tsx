@@ -1,4 +1,4 @@
-import Header from "@/components/ Blogs";
+import Header from "@/components/Blogs";
 
 import BentoCard, {
   BentoBackground,
@@ -126,7 +126,7 @@ export default async function Home() {
   const links = staticdata.data.publication.links;
 
   return (
-    <div className="flex w-full flex-row gap-20 lg:gap-0 justify-between  md:justify-around  items-start    max-md:flex-col max-md:items-center ">
+    <div className="flex h-fit w-full flex-row gap-20 lg:gap-0 justify-between  md:justify-around  items-start    max-md:flex-col max-md:items-center ">
       <div className="  mr-28 max-md:mr-0  relative  lg:sticky lg:h-screen top-24 max-lg:justify-start max-w-[320px] max-h-[500px]  justify-center items-center flex">
         <Header staticdata={staticdata} />
       </div>
