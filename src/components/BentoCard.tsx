@@ -267,7 +267,7 @@ export function BentoImage({
     <div className="relative">
       {children}
 
-      <img
+      <Image
         data-type={type}
         className=" object-cover border border-neutral-600 object-center data-[type=small]:hidden data-[type=vertical]:rounded-[10px] data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
         src={src}
@@ -358,12 +358,8 @@ function BentoCard({
       }}
       {...props}
     >
-      {/* <div
-        data-bento-card-container={type}
-        className=" shadow-sm  w-full h-full p-6 absolute top-0 dark:shadow-[0_2px_4px_rgba(255,255,255,.04)]  font-semibold dark:text-white   dark:shadow-neutral-700 "
-      > */}
       {children}
-      {/* </div> */}
+
       <div
         style={{
           opacity: 1,
@@ -394,7 +390,7 @@ function BentoCard({
 
           maskImage: "linear-gradient(0deg,transparent,#000)",
         }}
-        className=" border-[color:hsla(0,0%,100%,.22)] hover:bottom-4 border-0 absolute  dark:border-4  dark:border-[color:#292929]"
+        className=" border-[color:hsla(0,0%,100%,.22)]   dark:border-4  dark:border-[color:#292929]"
       ></div>
 
       {isLink && (

@@ -60,7 +60,7 @@ async function fetchData(slug: string) {
   const endpoint =
     process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT || "https://gql.hashnode.com"; // Replace with your actual GraphQL endpoint URL
   const host =
-    process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST || "blog.coolhead.in"; // Replace with the desired host value
+    process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST || ""; // Replace with the desired host value
   const first = 10;
   const variables = (slug: string) => ({
     host,

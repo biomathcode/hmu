@@ -15,6 +15,7 @@ interface CustomWindow extends Window {
 }
 
 function ShopCard({ e }: { e: any }) {
+  console.log(e.id);
   return (
     <BentoCard type="large" key={e.id}>
       <BentoContainer type="large">
@@ -36,7 +37,7 @@ function ShopCard({ e }: { e: any }) {
           ></div>
 
           <a
-            href="https://shop.coolhead.in/checkout/buy/3ecca4d6-e805-4e83-8552-a0b6be52c916?embed=1"
+            href={e.attributes.buy_now_url + "?embed=1"}
             className="lemonsqueezy-button bg-neutral-900 text-white px-4 py-2 rounded-lg mt-2  "
           >
             Buy

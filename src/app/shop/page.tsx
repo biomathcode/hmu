@@ -11,6 +11,8 @@ const LemonPay = dynamic(() => import("@/lib/Payments/LemonPay"), {
 async function Shop() {
   const data = (await LS.getProducts()).data;
 
+  console.log(data);
+
   return (
     <div className="text-black dark:text-white flex flex-col gap-4 mt-10 overflow-scroll no-scrollbar">
       {data.map((e) => {

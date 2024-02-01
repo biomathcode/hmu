@@ -2,7 +2,33 @@
 HMU is a porfolio template for bloggers, indie developer, any 1 who is on internet and wants to write and sell its goods. The aim is to be composable, adaptable and plug&play. It's a Static Site Generator.  
 
 
-![header Image for the project](save.gif)
+![header Image for the project](screenshot.webp)
+
+
+
+#### Deploy
+
+Make Sure to update the environment variables
+
+```
+HASHNODE_API_KEY={your_api_key}
+LEMONSQUEEZY_API_KEY={your_ls_api_key}
+NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT=https://gql.hashnode.com
+NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST=blog.coolhead.in
+NEXT_PUBLIC_LEMONSQUEEZY_STORE=shop.coolhead.in
+NEXT_PUBLIC_MODE=development
+OLLAMA_BASE_URL=http://localhost:11434
+OPENAI_API_KEY={your_openai_key}
+
+```
+
+
+
+
+Vercel: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/biomathcode/hmu)
+
+
+
 
 #### Tech Stack
 - Tailwind
@@ -17,11 +43,10 @@ HMU is a porfolio template for bloggers, indie developer, any 1 who is on intern
 
 #### Features
 - SEO
-- Blogs
+- Blogs from hashnode
 - Launch Site
-- Marketplace
+- Get Products from Lemon Squeezy
 - AI intergrations for writing
-- Local First
 
 ---
 
