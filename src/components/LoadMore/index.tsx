@@ -67,7 +67,7 @@ function LoadMore({ publication, initialPosts, initialPageInfo }: any) {
       <div className="flex justify-center mt-10">
         {isNextPage && (
           <button
-            className=" transition-colors duration-200 rounded-lg w-fit py-4 px-5 mb-36 dark:text-white  hover:bg-neutral-800 hover:text-neutral-200 bg-neutral-200 font-medium "
+            className=" transition-colors duration-200 rounded-lg w-fit py-4 px-5 mb-36 dark:text-white  hover:bg-neutral-800 hover:text-neutral-200 bg-neutral-200 dark:bg-neutral-900 font-medium "
             onClick={() => loadMore()}
           >
             Load More

@@ -1,5 +1,14 @@
 import Link from "next/link";
-import BentoCard, { BentoContainer, BentoImage } from "../BentoCard";
+import BentoCard, {
+  BentoCardType,
+  BentoContainer,
+  BentoFlavicon,
+  BentoImage,
+  BentoLink,
+  BentoSubtitle,
+  BentoTitle,
+  BentoToolTip,
+} from "../BentoCard";
 
 const data = {
   flavicon: "",
@@ -12,9 +21,10 @@ const data = {
 
 type linkPreviewType = {
   link: string;
+  type: BentoCardType;
 };
 
-async function LinkPreview({ link }: linkPreviewType) {
+async function LinkPreview({ link, type }: linkPreviewType) {
   const url = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : "http://localhost:3000";
@@ -23,23 +33,21 @@ async function LinkPreview({ link }: linkPreviewType) {
   const data = await res.json();
 
   return (
-    <Link href={link}>
-      <BentoCard type="large">
-        <BentoContainer type="large">
-          <div className="text-black text-[14px] font-normal overflow-hidden">
-            {data?.title}
-          </div>
-          <div className="text-neutral-500 text-[12px] font-normal ">
-            {data?.description}
-          </div>
-          <BentoImage
-            type="large"
-            alt={data?.description}
-            src={data?.ogImage}
-          />
-        </BentoContainer>
-      </BentoCard>
-    </Link>
+    <BentoCard type={type}>
+      <BentoContainer type={type}>
+        <div className="flex flex-col gap-2">
+          {/* <BentoFlavicon src={link + "/favicon.ico"} type={type} /> */}
+          <BentoTitle type={type}>{data?.title}</BentoTitle>
+          <BentoSubtitle type={type}>{data?.description}</BentoSubtitle>
+        </div>
+        <BentoImage type={type} alt={data?.description} src={data?.ogImage}>
+          <BentoToolTip type={type}>
+            {link.replace("https://", "")}
+          </BentoToolTip>
+        </BentoImage>
+      </BentoContainer>
+      <BentoLink href={link} />
+    </BentoCard>
   );
 }
 

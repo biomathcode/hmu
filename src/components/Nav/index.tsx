@@ -22,13 +22,13 @@ const Links = [
     url: "/",
     isRedirect: false,
   },
-  // {
-  //   id: 2,
-  //   label: "blogs",
-  //   icon: <Pencil1Icon className=" w-6 h-6 " width={12} />,
-  //   url: "/blogs",
-  //   isRedirect: false,
-  // },
+  {
+    id: 2,
+    label: "blogs",
+    icon: <Pencil1Icon className=" w-6 h-6 " width={12} />,
+    url: "/blogs",
+    isRedirect: false,
+  },
 
   // {
   //   id: 3,
@@ -71,7 +71,6 @@ function Nav() {
             </div>
           </Link>
         ))}
-        <MagnifyingGlassIcon className=" w-6 h-6 " width={12} />
         <ModeToggle />
       </div>
     </nav>

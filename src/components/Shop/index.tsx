@@ -15,7 +15,6 @@ interface CustomWindow extends Window {
 }
 
 function ShopCard({ e }: { e: any }) {
-  console.log(e.id);
   return (
     <BentoCard type="large" key={e.id}>
       <BentoContainer type="large">

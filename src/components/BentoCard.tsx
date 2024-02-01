@@ -23,7 +23,7 @@ const styles = {
 
 // TODO :remove Bento Card default width and height and replace with tailwind css
 
-type BentoCardType = "small" | "large" | "medium" | "long" | "vertical";
+export type BentoCardType = "small" | "large" | "medium" | "long" | "vertical";
 
 interface BentoSizes {
   [key: string]: { width: string; height: string };
@@ -91,9 +91,13 @@ export const BentoButton = ({
 export const BentoFlavicon = ({
   icon,
   color,
+  type,
+  src,
 }: {
-  icon: keyof typeof Icons;
+  icon?: keyof typeof Icons;
   color?: string;
+  type?: BentoCardType;
+  src?: string;
 }) => {
   const Icons = {
     figma: <Figma style={styles} />,
@@ -115,12 +119,14 @@ export const BentoFlavicon = ({
     instagram: "#E4405F",
     linkedin: "#0077B5",
     youtube: "#fff",
-    website: "#000",
+    website: "#777",
 
     mastodon: "#2C5282",
     dailydev: "#111",
     hashnode: "#fff",
   };
+
+  const background = icon ? colors[icon] : "#fff";
   return (
     <div
       style={{
@@ -129,15 +135,25 @@ export const BentoFlavicon = ({
 
         padding: "6px",
         borderRadius: "10px",
-        display: "flex",
-        background: colors[icon],
+
+        background: background,
         color: "#fff",
         justifyContent: "center",
         alignItems: "center",
       }}
-      className="border border-black/5 shadow"
+      data-type={type}
+      className="border hidden border-black/5 shadow data-[type=small]:inline"
     >
-      {Icons[icon]}
+      {icon ? (
+        Icons[icon]
+      ) : (
+        <img
+          data-type={type}
+          src={src || ""}
+          alt=""
+          className="hidden data-[type=small]:inline"
+        />
+      )}
     </div>
   );
 };
@@ -194,16 +210,16 @@ const BentoImageSize: BentoSizes = {
     height: "0px",
   },
   long: {
-    width: "0px",
-    height: "0px",
+    width: "200px",
+    height: "40px",
   },
   vertical: {
     width: "130px",
     height: "68px",
   },
   medium: {
-    width: "160px",
-    height: "130px",
+    width: "120px",
+    height: "80px",
   },
   large: {
     width: "332px",
@@ -225,7 +241,7 @@ export function BentoTitle({
     <div
       data-type={type}
       className={cn(
-        " line-clamp-3 text-lg font-normal data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2 data-[type=small]:text-sm ",
+        " line-clamp-3 text-lg data-[type=long]:text-md data-[type=long]:w-92 font-normal data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-2 data-[type=small]:text-sm ",
         classname
       )}
     >
@@ -244,7 +260,7 @@ export function BentoSubtitle({
   return (
     <div
       data-type={type}
-      className="text-neutral-500 text-[14px] font-normal line-clamp-3  data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-1  "
+      className="text-neutral-500 text-[14px] font-normal line-clamp-3 data-[type=long]:hidden  data-[type=medium]:line-clamp-2 data-[type=small]:line-clamp-1  "
     >
       {children}
     </div>
@@ -267,9 +283,9 @@ export function BentoImage({
     <div className="relative">
       {children}
 
-      <Image
+      <img
         data-type={type}
-        className=" object-cover border border-neutral-600 object-center data-[type=small]:hidden data-[type=vertical]:rounded-[10px] data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
+        className=" object-cover  object-center data-[type=small]:hidden data-[type=vertical]:rounded-[10px] data-[type=medium]:rounded-[14px] data-[type=large]:rounded-[10px]"
         src={src}
         style={{
           width,
@@ -301,7 +317,10 @@ export function BentoToolTip({
   children: ReactNode;
 }) {
   return (
-    <div className=" z-20 absolute font-normal left-0 bottom-0 p-4 transition-opacity duration-200 ease-in">
+    <div
+      data-type={type}
+      className=" data-[type=large]:inline-block hidden z-20 absolute font-normal left-0 bottom-0 p-4 transition-opacity duration-200 ease-in"
+    >
       <div
         className=" max-w-[200px] 
     bg-white/70 dark:bg-black/30 px-2 py-1.5 text-[14px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06)] backdrop-blur-[20px] rounded-[8px]
@@ -322,11 +341,34 @@ export function BentoContainer({
 }) {
   return (
     <div
-      data-bento-card={type}
-      className=" w-full h-full  p-6 absolute top-0   font-semibold dark:text-white    "
+      data-type={type}
+      className=" w-full h-full flex flex-col data-[type=small]:flex-col data-[type=medium]:flex-row data-[type=long]:flex-row gap-3 justify-between  p-6 absolute top-0   font-semibold dark:text-white    "
     >
       {children}
     </div>
+  );
+}
+
+export function BentoLink({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      aria-label={href}
+      style={{
+        zIndex: "20",
+        position: "absolute",
+        top: "0",
+        right: "0",
+        left: "0",
+        bottom: "0",
+        borderRadius: "inherit",
+        borderWidth: 1,
+        cursor: "pointer",
+      }}
+      className="hover:opacity-10 transition-all duration-300 ease-linear  opacity-0 bg-neutral-300"
+      target="_blank"
+      rel="noopener noreferrer"
+    ></a>
   );
 }
 

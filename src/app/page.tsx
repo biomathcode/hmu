@@ -104,8 +104,8 @@ const SmallBento = ({
         href={link}
         type={"small"}
       >
-        <BentoContainer type="long">
-          <BentoFlavicon icon={type} />
+        <BentoContainer type="small">
+          <BentoFlavicon icon={type} type="small" />
           <div className="flex flex-col gap-4 mt-2">
             <BentoSubtitle type="small">{username}</BentoSubtitle>
             <BentoTitle type="small">{value}</BentoTitle>
@@ -142,6 +142,16 @@ export default async function Home() {
             />
           ))}
         </div>
+        <Link
+          href={"#products"}
+          id="products"
+          className="my-2 font-semibold text-2xl items-center flex gap-1"
+        >
+          <div className="font-sm text-neutral-500">{"##  "}</div>
+          Shop
+        </Link>
+
+        <Shop />
 
         <Link
           id="writings"
@@ -186,17 +196,6 @@ export default async function Home() {
         <LoadMore
           initialPageInfo={staticdata.data.publication.posts.pageInfo}
         />
-
-        <Link
-          href={"#products"}
-          id="products"
-          className="my-2 font-semibold text-2xl items-center flex gap-1"
-        >
-          <div className="font-sm text-neutral-500">{"##  "}</div>
-          Shop
-        </Link>
-
-        <Shop />
       </div>
     </div>
   );

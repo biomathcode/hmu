@@ -102,8 +102,6 @@ export async function getPostsByTags({
     const response = await fetch(endpoint, requestOptions(after, tag));
     const data = await response.json();
 
-    console.log("load more data", data);
-
     // Handle the data as needed
     return data;
   } catch (error) {

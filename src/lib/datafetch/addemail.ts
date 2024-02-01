@@ -34,7 +34,7 @@ export async function subscribeToNewsletter(
     });
 
     const data = await response.json();
-    console.log("GraphQL Response:", data);
+
     return data;
   } catch (error) {
     console.error("GraphQL Request Error:", error);

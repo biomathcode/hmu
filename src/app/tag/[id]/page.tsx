@@ -15,7 +15,6 @@ async function Posts({ params }: { params: { id: string } }) {
   const tag = params.id;
   const staticdata = await getPostsByTags({ after: "", tag: tag });
 
-  console.log("staticdata", staticdata);
   return (
     <div className="text-black dark:text-white flex flex-col gap-4 mt-10  no-scrollbar  items-center">
       <div className="text-neutal-800 text-4xl font-extrabold  ">
