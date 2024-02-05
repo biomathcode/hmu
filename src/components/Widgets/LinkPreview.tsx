@@ -32,6 +32,10 @@ async function LinkPreview({ link, type }: linkPreviewType) {
 
   const data = await res.json();
 
+  if (!data) {
+    return <div>Not Found</div>;
+  }
+
   return (
     <BentoCard type={type}>
       <BentoContainer type={type}>
