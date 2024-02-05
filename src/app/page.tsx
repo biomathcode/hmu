@@ -206,8 +206,6 @@ export default async function Home() {
           <div className="font-sm text-neutral-500">{"##  "}</div>
           Projects
         </Link>
-
-        <LinkPreview type="large" link="https://rover.coolhead.in" />
       </div>
     </div>
   );
