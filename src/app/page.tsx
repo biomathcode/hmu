@@ -197,6 +197,16 @@ export default async function Home() {
         </Link>
 
         <Shop />
+
+        <Link
+          href={"#projects"}
+          id="projects"
+          className="my-4 font-semibold text-2xl items-center flex gap-1"
+        >
+          <div className="font-sm text-neutral-500">{"##  "}</div>
+          Projects
+        </Link>
+        <LinkPreview type="large" link="https://rover.coolhead.in" />
       </div>
     </div>
   );
